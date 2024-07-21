@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/manager/manager",
+    "pages/mine/mine",
+    "pages/presentcar/presentcar"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007aff",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/tabBar/home.png",
+        "selectedIconPath": "static/tabBar/_home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/manager/manager",
+        "iconPath": "/static/tabBar/manager.png",
+        "selectedIconPath": "static/tabBar/_manager.png",
+        "text": "管理"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/static/tabBar/mine.png",
+        "selectedIconPath": "static/tabBar/_mine.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

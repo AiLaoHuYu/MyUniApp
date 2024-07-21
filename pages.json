@@ -1,0 +1,71 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "掌上云停",
+				"navigationBarBackgroundColor": "#007aff"
+			}
+		},
+		{
+			"path": "pages/manager/manager",
+			"style": {
+				"navigationBarTitleText": "掌上云停",
+				"navigationBarBackgroundColor": "#007aff"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "掌上云停",
+				"navigationBarBackgroundColor": "#007aff"
+			}
+		},
+		{
+			"path" : "pages/presentcar/presentcar",
+			"style" : 
+			{
+				"navigationBarTitleText": "掌上云停",
+				"navigationBarBackgroundColor": "#007aff"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007aff",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/tabBar/home.png",
+				"selectedIconPath": "static/tabBar/_home.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/manager/manager",
+				"iconPath": "/static/tabBar/manager.png",
+				"selectedIconPath": "static/tabBar/_manager.png",
+				"text": "管理"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"iconPath": "/static/tabBar/mine.png",
+				"selectedIconPath": "static/tabBar/_mine.png",
+				"text": "我的"
+			}
+		]
+				
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

@@ -1,0 +1,406 @@
+<template>
+	<view class="container">
+		<!-- 	可以定义各种各样的组件来配合flex布局 -->
+		<view class="unin-flex unin-column">
+			<view>
+				<view class="row-item-title">
+					车场信息
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+				<view class="uni-row-item" @click="goPresentCar">
+					<view class="image-parent" style="background-color: dodgerblue;">
+						<image class="row-image" src="../../static/manager/present_car.png"></image>
+					</view>
+					<view class="row-text">
+						在场车辆
+					</view>
+				</view>
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: orange;">
+						<image class="row-image" src="../../static/manager/entry_exit_records.png"></image>
+					</view>
+					<view class="row-text">
+						进出记录
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: forestgreen;">
+						<image class="row-image" src="../../static/manager/car_waiting.png"></image>
+					</view>
+					<view class="row-text">
+						等待处理
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: indianred;">
+						<image class="row-image" src="../../static/manager/home_diagram.png"></image>
+					</view>
+					<view class="row-text">
+						首页表图
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="unin-flex unin-column">
+			<view>
+				<view class="row-item-title">
+					基础配置
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: orange;">
+						<image class="row-image" src="../../static/manager/area_setting.png"></image>
+					</view>
+					<view class="row-text">
+						区域配置
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: dodgerblue;">
+						<image class="row-image" src="../../static/manager/passage.png"></image>
+					</view>
+					<view class="row-text">
+						通道配置
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: indianred;">
+						<image class="row-image" src="../../static/manager/permissions.png"></image>
+					</view>
+					<view class="row-text">
+						通道权限
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: forestgreen;">
+						<image class="row-image" src="../../static/manager/camera.png"></image>
+					</view>
+					<view class="row-text">
+						相机配置
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: limegreen;margin-top: 5px;">
+						<image class="row-image" src="../../static/manager/network_motherboard.png"></image>
+					</view>
+					<view class="row-text">
+						网络主板
+					</view>
+				</view>
+
+			</view>
+		</view>
+
+		<view class="unin-flex unin-column">
+			<view>
+				<view class="row-item-title">
+					车辆信息
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: mediumspringgreen;">
+						<image class="row-image" src="../../static/manager/car_setting.png"></image>
+					</view>
+					<view class="row-text">
+						固定车配置
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: orange;">
+						<image class="row-image" src="../../static/manager/member_car_setting.png"></image>
+					</view>
+					<view class="row-text">
+						会员车配置
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: palevioletred;">
+						<image class="row-image" src="../../static/manager/booking_car_setting.png"></image>
+					</view>
+					<view class="row-text">
+						预约车配置
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: goldenrod;">
+						<image class="row-image" src="../../static/manager/temporary_car_setting.png"></image>
+					</view>
+					<view class="row-text">
+						临时车配置
+					</view>
+				</view>
+
+			</view>
+		</view>
+
+		<view class="unin-flex unin-column">
+			<view>
+				<view class="row-item-title">
+					优惠券管理
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: mediumpurple;">
+						<image class="row-image" src="../../static/manager/consumption_vouchers.png"></image>
+					</view>
+					<view class="row-text">
+						待消费券
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: lightpink;">
+						<image class="row-image" src="../../static/manager/consumption_vouchers_recording.png"></image>
+					</view>
+					<view class="row-text">
+						发券记录
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: orangered;">
+						<image class="row-image" src="../../static/manager/consume_recording.png"></image>
+					</view>
+					<view class="row-text">
+						消费记录
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: goldenrod;">
+						<image class="row-image" src="../../static/manager/inventory_management.png"></image>
+					</view>
+					<view class="row-text">
+						库存管理
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: royalblue;	margin-top: 5px;">
+						<image class="row-image" src="../../static/manager/merchant_management.png"></image>
+					</view>
+					<view class="row-text">
+						商家管理
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="unin-flex unin-column">
+			<view>
+				<view class="row-item-title">
+					报表统计
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: lightseagreen;">
+						<image class="row-image" src="../../static/manager/fixed_car_charges.png"></image>
+					</view>
+					<view class="row-text">
+						固定车收费
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: mediumpurple;">
+						<image class="row-image" src="../../static/manager/temporary_car_charges_apply.png"></image>
+					</view>
+					<view class="row-text">
+						临时车收费
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: lightseagreen;">
+						<image class="row-image" src="../../static/manager/charge_statistics.png"></image>
+					</view>
+					<view class="row-text">
+						收费统计
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: goldenrod;">
+						<image class="row-image" src="../../static/manager/parking_orders.png"></image>
+					</view>
+					<view class="row-text">
+						停车订单
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: royalblue;	margin-top: 5px;">
+						<image class="row-image" src="../../static/manager/open_sluice_gate.png"></image>
+					</view>
+					<view class="row-text">
+						人工开闸
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: skyblue;	margin-top: 5px;">
+						<image class="row-image" src="../../static/manager/parking_charging.png"></image>
+					</view>
+					<view class="row-text">
+						现金收费
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: yellowgreen;	margin-top: 5px;">
+						<image class="row-image" src="../../static/manager/cash_settlement.png"></image>
+					</view>
+					<view class="row-text">
+						现金结算
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="unin-flex unin-column" style="margin-bottom: 10px;">
+			<view>
+				<view class="row-item-title">
+					系统管理
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: yellowgreen;">
+						<image class="row-image" src="../../static/manager/people_manager.png"></image>
+					</view>
+					<view class="row-text">
+						用户管理
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: indianred;">
+						<image class="row-image" src="../../static/manager/permissions_management.png"></image>
+					</view>
+					<view class="row-text">
+						权限管理
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: royalblue;">
+						<image class="row-image" src="../../static/manager/parking_lot_configuration.png"></image>
+					</view>
+					<view class="row-text">
+						车场配置
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+</template>
+
+
+<script>
+	//VM：协调者调度器
+	export default {
+		//Model所有的数据
+		data() {
+			return {
+
+			}
+		},
+		onLoad() {
+
+		},
+		methods: {
+			goPresentCar() {
+				uni.navigateTo({
+					url: '/pages/presentcar/presentcar'
+				})
+			}
+		}
+	}
+</script>
+
+
+<style>
+	.container {
+		/* 定义flex容器 */
+		display: flex;
+		flex-direction: column;
+		background-color: lightgray;
+		width: 100%;
+		height: 100%;
+		/*设置容器内部容器的排列方向*/
+	}
+
+	.unin-column {
+		display: inline-flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		background-color: white;
+		margin-top: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		padding: 10px;
+		border-radius: 8upx;
+	}
+
+	.unin-row {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding-top: 10px;
+		line-height: 20px;
+	}
+
+	.uni-row-item {
+		display: inline-flex;
+		flex-direction: column;
+		width: 25%;
+		height: auto;
+		align-items: center;
+		justify-content: center;
+
+	}
+
+	.row-image {
+		width: 70upx;
+		height: 70upx;
+	}
+
+	.image-parent {
+		width: 80upx;
+		height: 80upx;
+		text-align: center;
+		padding: 10upx;
+		border-radius: 8upx;
+	}
+
+	.row-text {
+		font-size: 24upx;
+		padding-top: 5upx;
+		font-family: Arial, Helvetica, sans-serif;
+		text-align: center;
+	}
+
+	.row-item-title {
+		font-size: 30upx;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+	}
+</style>
