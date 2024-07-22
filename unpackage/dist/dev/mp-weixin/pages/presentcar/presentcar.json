@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "掌上云停",
+  "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#007aff",
   "usingComponents": {
     "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar"
