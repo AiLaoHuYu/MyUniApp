@@ -1,0 +1,58 @@
+
+.content.data-v-e4e4508d {
+    height: 100vh;
+    background-color: aquamarine;
+    background: url("https://www.galaxyclub.cn/Upload/IMAGES/15/0615/38af439784544e95b7c64cad64a14157_650x650.jpg") no-repeat;
+    background-size: cover;
+}
+.topBox.data-v-e4e4508d {
+    font-size: 34rpx;
+    color: #fff;
+    padding: 80rpx 50rpx;
+}
+h3.data-v-e4e4508d {
+    margin-bottom: 10rpx;
+}
+.inputBox.data-v-e4e4508d {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 750rpx;
+    height: 85vh;
+    background-color: #fff;
+    border-top-left-radius: 40rpx;
+    border-top-right-radius: 40rpx;
+    padding: 60rpx;
+    box-sizing: border-box;
+}
+.ipt.data-v-e4e4508d {
+    margin-bottom: 50rpx;
+}
+.ipt h4.data-v-e4e4508d {
+    margin-bottom: 20rpx;
+    font-size: 36rpx;
+    color: #333;
+}
+.ipt input.data-v-e4e4508d {
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20rpx;
+    font-size: 28rpx;
+}
+.loginBtn.data-v-e4e4508d {
+    margin-top: 20rpx;
+    line-height: 85rpx;
+    text-align: center;
+    background: linear-gradient(to right, rgb(86, 104, 214), rgb(86, 104, 214));
+    border-radius: 40rpx;
+    color: #fff;
+    margin-top: 50rpx;
+}
+.registerBtn.data-v-e4e4508d {
+    margin-top: 20rpx;
+    line-height: 85rpx;
+    text-align: center;
+    border-radius: 40rpx;
+    color: rgb(86, 104, 214);
+    margin-top: 50rpx;
+    border: none;
+}

@@ -1539,8 +1539,8 @@ function populateParameters(fromRes, toRes) {
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "4.23",
-    uniRuntimeVersion: "4.23",
+    uniCompileVersion: "4.24",
+    uniRuntimeVersion: "4.24",
     uniPlatform: "mp-weixin",
     deviceBrand,
     deviceModel: model,
@@ -7891,6 +7891,14 @@ const createSubpackageApp = initCreateSubpackageApp();
   wx.createSubpackageApp = global.createSubpackageApp = createSubpackageApp;
 }
 const pages = [
+  {
+    path: "pages/login/login",
+    style: {
+      navigationBarTitleText: "掌上云停",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
+    }
+  },
   {
     path: "pages/index/index",
     style: {

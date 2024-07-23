@@ -1,6 +1,14 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "掌上云停",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007aff"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "掌上云停",
@@ -25,9 +33,8 @@
 			}
 		},
 		{
-			"path" : "pages/presentcar/presentcar",
-			"style" : 
-			{
+			"path": "pages/presentcar/presentcar",
+			"style": {
 				"navigationBarTitleText": "掌上云停",
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#007aff"
@@ -43,8 +50,7 @@
 		"fontSize": "10px",
 		"iconWidth": "24px",
 		"spacing": "3px",
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index/index",
 				"iconPath": "/static/tabBar/home.png",
 				"selectedIconPath": "static/tabBar/_home.png",
@@ -63,7 +69,7 @@
 				"text": "我的"
 			}
 		]
-				
+
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

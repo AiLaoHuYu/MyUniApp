@@ -1,5 +1,5 @@
 "use strict";
-const _imports_0 = "/static/manager/present_car.png";
+const _imports_0$1 = "/static/manager/present_car.png";
 const _imports_1 = "/static/manager/entry_exit_records.png";
 const _imports_2 = "/static/manager/car_waiting.png";
 const _imports_3 = "/static/manager/home_diagram.png";
@@ -27,7 +27,9 @@ const _imports_24 = "/static/manager/cash_settlement.png";
 const _imports_25 = "/static/manager/people_manager.png";
 const _imports_26 = "/static/manager/permissions_management.png";
 const _imports_27 = "/static/manager/parking_lot_configuration.png";
-exports._imports_0 = _imports_0;
+const _imports_0 = "/static/mine/admin_head.png";
+exports._imports_0 = _imports_0$1;
+exports._imports_0$1 = _imports_0;
 exports._imports_1 = _imports_1;
 exports._imports_10 = _imports_10;
 exports._imports_11 = _imports_11;

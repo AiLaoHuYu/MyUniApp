@@ -353,10 +353,10 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		background-color: white;
-		margin-top: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
-		padding: 10px;
+		margin-top: 20rpx;
+		margin-left: 20rpx;
+		margin-right: 20rpx;
+		padding: 20rpx;
 		border-radius: 8upx;
 	}
 
@@ -364,8 +364,8 @@
 		display: inline-flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		padding-top: 10px;
-		line-height: 20px;
+		padding-top: 20rpx;
+		line-height: 40rpx;
 	}
 
 	.uni-row-item {
