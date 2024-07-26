@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/manager/manager",
     "pages/mine/mine",
-    "pages/presentcar/presentcar"
+    "pages/presentcar/presentcar",
+    "pages/carPictureDetail/carPictureDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -39,6 +39,13 @@
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#007aff"
 			}
+		},
+		{
+			"path" : "pages/carPictureDetail/carPictureDetail",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
 	],
 	"tabBar": {

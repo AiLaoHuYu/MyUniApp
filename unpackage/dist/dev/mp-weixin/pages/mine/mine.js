@@ -13,7 +13,7 @@ const _sfc_main = {
   },
   methods: {
     onExitClick() {
-      common_vendor.index.navigateTo({ url: "/pages/login/login" });
+      common_vendor.index.reLaunch({ url: "/pages/login/login" });
     }
   }
 };
@@ -53,7 +53,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       title: "厂商登录"
     }),
     g: $data.isLoggedIn
-  }, $data.isLoggedIn ? {} : {});
+  }, $data.isLoggedIn ? {
+    h: common_vendor.o(($event) => $options.onExitClick())
+  } : {});
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-7c2ebfa5"]]);
 wx.createPage(MiniProgramPage);

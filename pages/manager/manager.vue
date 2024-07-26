@@ -9,7 +9,7 @@
 			</view>
 			<view class="unin-flex unin-row">
 				<view class="uni-row-item" @click="goPresentCar">
-					<view class="image-parent" style="background-color: dodgerblue;">
+					<view class="image-parent" style="background-color: #1E90FF;">
 						<image class="row-image" src="../../static/manager/present_car.png"></image>
 					</view>
 					<view class="row-text">
@@ -17,7 +17,7 @@
 					</view>
 				</view>
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: orange;">
+					<view class="image-parent" style="background-color: #FF8C00;">
 						<image class="row-image" src="../../static/manager/entry_exit_records.png"></image>
 					</view>
 					<view class="row-text">
@@ -26,7 +26,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: forestgreen;">
+					<view class="image-parent" style="background-color: #3CB371;">
 						<image class="row-image" src="../../static/manager/car_waiting.png"></image>
 					</view>
 					<view class="row-text">
@@ -35,7 +35,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: indianred;">
+					<view class="image-parent" style="background-color:#fb0040;">
 						<image class="row-image" src="../../static/manager/home_diagram.png"></image>
 					</view>
 					<view class="row-text">
@@ -54,7 +54,7 @@
 			<view class="unin-flex unin-row">
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: orange;">
+					<view class="image-parent" style="background-color: #FF8C00;">
 						<image class="row-image" src="../../static/manager/area_setting.png"></image>
 					</view>
 					<view class="row-text">
@@ -63,7 +63,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: dodgerblue;">
+					<view class="image-parent" style="background-color: #1E90FF;">
 						<image class="row-image" src="../../static/manager/passage.png"></image>
 					</view>
 					<view class="row-text">
@@ -72,7 +72,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: indianred;">
+					<view class="image-parent" style="background-color: #A0522D;">
 						<image class="row-image" src="../../static/manager/permissions.png"></image>
 					</view>
 					<view class="row-text">
@@ -81,7 +81,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: forestgreen;">
+					<view class="image-parent" style="background-color: #3CB371;">
 						<image class="row-image" src="../../static/manager/camera.png"></image>
 					</view>
 					<view class="row-text">
@@ -90,7 +90,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: limegreen;margin-top: 5px;">
+					<view class="image-parent" style="background-color: #228B22;margin-top: 5px;">
 						<image class="row-image" src="../../static/manager/network_motherboard.png"></image>
 					</view>
 					<view class="row-text">
@@ -105,6 +105,54 @@
 			<view>
 				<view class="row-item-title">
 					车辆信息
+				</view>
+			</view>
+			<view class="unin-flex unin-row">
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: #FF8C00;">
+						<image class="row-image" src="../../static/manager/fixed_vehicle_information.png"></image>
+					</view>
+					<view class="row-text">
+						固定车资料
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color:#228B22;">
+						<image class="row-image" src="../../static/manager/booking_car_information.png"></image>
+					</view>
+					<view class="row-text">
+						会员车资料
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color:	#00BFFF;">
+						<image class="row-image" src="../../static/manager/booking_car_setting.png"></image>
+					</view>
+					<view class="row-text">
+						预约车资料
+					</view>
+				</view>
+
+				<view class="uni-row-item">
+					<view class="image-parent" style="background-color: black;">
+						<image class="row-image" src="../../static/manager/blacklist.png"></image>
+					</view>
+					<view class="row-text">
+						黑名单资料
+					</view>
+				</view>
+
+			</view>
+		</view>
+
+
+		<view class="unin-flex unin-column">
+			<view>
+				<view class="row-item-title">
+					车型配置
 				</view>
 			</view>
 			<view class="unin-flex unin-row">
@@ -386,7 +434,9 @@
 	.image-parent {
 		width: 80upx;
 		height: 80upx;
-		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		padding: 10upx;
 		border-radius: 8upx;
 	}

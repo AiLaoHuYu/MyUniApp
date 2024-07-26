@@ -17,7 +17,11 @@
         <h4>密码</h4>
         <input type="text" value="" placeholder="请输入密码" />
       </view>
+<<<<<<< HEAD
       <button class="loginBtn" @click="login">登录</button>
+=======
+      <button class="loginBtn" @click="login()">登录</button>
+>>>>>>> b196415b3b29bf9bba8797a402338ba87eeb9e43
       <button class="registerBtn">注册</button>
     </view>
   </view>
@@ -32,8 +36,14 @@
     },
     methods: {
 		login(){
+<<<<<<< HEAD
 			// 跳转至登录页面
 			uni.switchTab({ url: '/pages/index/index' });
+=======
+			uni.switchTab({
+				url: '/pages/index/index'
+			})
+>>>>>>> b196415b3b29bf9bba8797a402338ba87eeb9e43
 		}
     }
   }

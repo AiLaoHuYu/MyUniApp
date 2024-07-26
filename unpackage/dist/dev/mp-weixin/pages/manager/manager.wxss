@@ -41,7 +41,9 @@
 .image-parent {
 		width: 80rpx;
 		height: 80rpx;
-		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		padding: 10rpx;
 		border-radius: 8rpx;
 }
