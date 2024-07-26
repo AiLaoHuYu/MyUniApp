@@ -72,7 +72,7 @@
 				</view>
 
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #DC143C;">
+					<view class="image-parent" style="background-color: #A0522D;">
 						<image class="row-image" src="../../static/manager/permissions.png"></image>
 					</view>
 					<view class="row-text">
@@ -100,7 +100,7 @@
 
 			</view>
 		</view>
-		
+
 		<view class="unin-flex unin-column">
 			<view>
 				<view class="row-item-title">
@@ -108,46 +108,46 @@
 				</view>
 			</view>
 			<view class="unin-flex unin-row">
-		
+
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: mediumspringgreen;">
-						<image class="row-image" src="../../static/manager/car_setting.png"></image>
+					<view class="image-parent" style="background-color: #FF8C00;">
+						<image class="row-image" src="../../static/manager/fixed_vehicle_information.png"></image>
 					</view>
 					<view class="row-text">
 						固定车资料
 					</view>
 				</view>
-		
+
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: orange;">
-						<image class="row-image" src="../../static/manager/member_car_setting.png"></image>
+					<view class="image-parent" style="background-color:#228B22;">
+						<image class="row-image" src="../../static/manager/booking_car_information.png"></image>
 					</view>
 					<view class="row-text">
 						会员车资料
 					</view>
 				</view>
-		
+
 				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: palevioletred;">
+					<view class="image-parent" style="background-color:	#00BFFF;">
 						<image class="row-image" src="../../static/manager/booking_car_setting.png"></image>
 					</view>
 					<view class="row-text">
 						预约车资料
 					</view>
 				</view>
-		
+
 				<view class="uni-row-item">
 					<view class="image-parent" style="background-color: black;">
-						<image class="row-image" src="../../static/manager/temporary_car_setting.png"></image>
+						<image class="row-image" src="../../static/manager/blacklist.png"></image>
 					</view>
 					<view class="row-text">
 						黑名单资料
 					</view>
 				</view>
-		
+
 			</view>
 		</view>
-		
+
 
 		<view class="unin-flex unin-column">
 			<view>

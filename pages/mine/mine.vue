@@ -39,7 +39,7 @@
 				<uni-list-item showArrow thumb="" title="修改密码" link to="/pages/"></uni-list-item>
 				<uni-list-item showArrow title="厂商登录"></uni-list-item>
 				<uni-list>
-					<view v-if="isLoggedIn" class="exitButton" click="onExitClick">退出</view>
+					<view v-if="isLoggedIn" class="exitButton" @click="onExitClick()">退出</view>
 				</uni-list>
 			</uni-list>
 
@@ -64,7 +64,7 @@
 		methods: {
 			onExitClick() {
 				// 跳转至登录页面
-				uni.navigateTo({ url: '/pages/login/login' });
+				uni.reLaunch({ url: '/pages/login/login' });
 			}
 
 		}
