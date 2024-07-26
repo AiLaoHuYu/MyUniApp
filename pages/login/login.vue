@@ -17,7 +17,7 @@
         <h4>密码</h4>
         <input type="text" value="" placeholder="请输入密码" />
       </view>
-      <button class="loginBtn">登录</button>
+      <button class="loginBtn" @click="login">登录</button>
       <button class="registerBtn">注册</button>
     </view>
   </view>
@@ -31,7 +31,10 @@
       }
     },
     methods: {
- 
+		login(){
+			// 跳转至登录页面
+			uni.switchTab({ url: '/pages/index/index' });
+		}
     }
   }
 </script>

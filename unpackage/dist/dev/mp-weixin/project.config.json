@@ -8,7 +8,7 @@
     "urlCheck": false,
     "es6": true,
     "postcss": true,
-    "minified": false,
+    "minified": true,
     "newFeature": true,
     "bigPackageSizeSupport": true,
     "babelSetting": {
@@ -18,8 +18,8 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "3.5.1",
-  "appid": "touristappid",
+  "libVersion": "3.5.0",
+  "appid": "wx60b565db49facf04",
   "projectname": "MyUniApp",
   "condition": {},
   "editorSetting": {
