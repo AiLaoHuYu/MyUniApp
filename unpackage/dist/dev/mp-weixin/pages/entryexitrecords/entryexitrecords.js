@@ -3,6 +3,7 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
+      fixedElementHeight: 50,
       info: [
         {
           licensePlate: "粤B66786",
@@ -56,13 +57,18 @@ const _sfc_main = {
       ]
     };
   },
+  mounted: function() {
+    this.getDomConfig();
+  },
   methods: {
-    inputDialogToggle(item, index) {
-      this.$refs.inputDialog[index].open();
-      console.log("item" + item + "::index:" + index);
-    },
-    dialogInputConfirm(val) {
-      console.log(val);
+    getDomConfig() {
+      this.$nextTick(() => {
+        let that = this;
+        let info = common_vendor.index.createSelectorQuery().select(".uni-section-search");
+        info.boundingClientRect(function(data) {
+          that.fixedElementHeight = data.height;
+        }).exec();
+      });
     },
     goToShowPicture(item) {
       common_vendor.index.navigateTo({
@@ -116,7 +122,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     h: common_vendor.p({
       type: "line"
     }),
-    i: common_vendor.f($data.info, (item, index, i0) => {
+    i: $data.fixedElementHeight + "px",
+    j: common_vendor.f($data.info, (item, index, i0) => {
       return {
         a: common_vendor.t(item.licensePlate),
         b: common_vendor.t(item.inOutResult),
@@ -129,5 +136,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   };
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-31d03cb2"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
 wx.createPage(MiniProgramPage);

@@ -3,56 +3,58 @@
 		<view>
 			<view class="uni-section-search">
 				<uni-section type="line">
-					<uni-search-bar class="search-view" @confirm="search" :focus="true" @blur="blur" @focus="focus"
-						@input="input" @cancel="cancel" @clear="clear" cancelButton="none" clearButton="auto">
+					<uni-search-bar @confirm="search" :focus="true" @blur="blur" @focus="focus" @input="input"
+						@cancel="cancel" @clear="clear" cancelButton="none" clearButton="auto">
 					</uni-search-bar>
 				</uni-section>
 
-
-				<view class="main">
-					<scroll-view class="uni-list-parent">
-						<view class="list-item" v-for="(item,index) in info"
-							:style="index===info.length-1?'margin-bottom: 20px;':''">
-							<view class="list-item-first">
-								<text class="list-item-text-first-left">车牌号:</text>
-								<text class="list-item-text-first-right">{{item.licensePlate}}</text>
-							</view>
-
-							<view class="list-item-other">
-								<text class="list-item-text-left">进出原因:</text>
-								<text class="list-item-text-right">{{item.inOutResult}}</text>
-							</view>
-
-							<view class="list-item-other">
-								<text class="list-item-text-left">通道名称:</text>
-								<text class="list-item-text-right">{{item.channelName}}</text>
-							</view>
-
-							<view class="list-item-other">
-								<text class="list-item-text-left">车辆类型名称:</text>
-								<text class="list-item-text-right">{{item.carTypeName}}</text>
-							</view>
-
-							<view class="list-item-other">
-								<text class="list-item-text-left">抓拍时间:</text>
-								<text class="list-item-text-right">{{item.photoTime}}</text>
-							</view>
-
-							<view class="divider"></view>
-
-							<view class="button-parent">
-								<view>
-									<button class="button button-third" @click="goToShowPicture(item)">查看照片</button>
-								</view>
-
-							</view>
-						</view>
-					</scroll-view>
-				</view>
-
-
-
 			</view>
+
+			<view class="space-holder" :style="{ height: fixedElementHeight + 'px' }">
+				占着位置的元素
+			</view>
+
+			<view class="main">
+				<scroll-view class="uni-list-parent">
+					<view class="list-item" v-for="(item,index) in info"
+						:style="index===info.length-1?'margin-bottom: 20px;':''">
+						<view class="list-item-first">
+							<text class="list-item-text-first-left">车牌号:</text>
+							<text class="list-item-text-first-right">{{item.licensePlate}}</text>
+						</view>
+
+						<view class="list-item-other">
+							<text class="list-item-text-left">进出原因:</text>
+							<text class="list-item-text-right">{{item.inOutResult}}</text>
+						</view>
+
+						<view class="list-item-other">
+							<text class="list-item-text-left">通道名称:</text>
+							<text class="list-item-text-right">{{item.channelName}}</text>
+						</view>
+
+						<view class="list-item-other">
+							<text class="list-item-text-left">车辆类型名称:</text>
+							<text class="list-item-text-right">{{item.carTypeName}}</text>
+						</view>
+
+						<view class="list-item-other">
+							<text class="list-item-text-left">抓拍时间:</text>
+							<text class="list-item-text-right">{{item.photoTime}}</text>
+						</view>
+
+						<view class="divider"></view>
+
+						<view class="button-parent">
+							<view>
+								<button class="button button-third" @click="goToShowPicture(item)">查看照片</button>
+							</view>
+
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+
 		</view>
 	</view>
 </template>
@@ -62,6 +64,7 @@
 	export default {
 		data() {
 			return {
+				fixedElementHeight: 50,
 				info: [{
 						licensePlate: "粤B66786",
 						inOutResult: "临时车自动开闸",
@@ -114,13 +117,23 @@
 				]
 			}
 		},
+		mounted: function() {
+			var _this = this;
+			var _that = this;
+			this.getDomConfig();
+		},
 		methods: {
-			inputDialogToggle(item, index) {
-				this.$refs.inputDialog[index].open()
-				console.log("item" + item + "::index:" + index)
-			},
-			dialogInputConfirm(val) {
-				console.log(val)
+			getDomConfig() {
+				//等DOM 更新完成后才会执行
+				this.$nextTick(() => {
+					let that = this
+					//捕获“顶部数据”的高度
+					let info = uni.createSelectorQuery().select(".uni-section-search");
+					info.boundingClientRect(function(data) { //data - 各种参数
+						//console.log(data) // 获取元素的相关信息
+						that.fixedElementHeight = data.height
+					}).exec()
+				});
 			},
 			goToShowPicture(item) {
 				uni.navigateTo({
@@ -151,35 +164,22 @@
 	}
 </script>
 
-<style scoped lang="scss">
-	.main {
-		flex: 1;
-		position: relative;
-
-		.uni-list-parent {
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-		}
-	}
-
-
-
-
-	.search-view {
+<style>
+	.uni-section-search {
+		z-index: 999;
+		background-color: #007aff;
 		position: fixed;
-		top: 0;
 		left: 0;
 		right: 0;
-		background-color: #007aff;
+		top: 0;
 	}
 
 	.content {
-		display: flex;
-		flex-direction: column;
 		background-color: lightgray;
+	}
+
+	.uni-list-parent {
+		text-align: center;
 	}
 
 	.list-item-first {
@@ -190,7 +190,7 @@
 	}
 
 	.list-item {
-		width: 370px;
+		width: 710rpx;
 		height: auto;
 		display: inline-flex;
 		flex-direction: column;
@@ -245,6 +245,7 @@
 	}
 
 	.button-parent {
+		display: flow;
 		float: right;
 	}
 
@@ -259,5 +260,10 @@
 
 	.button-third {
 		background-color: #F4A460;
+	}
+
+	.space-holder {
+		/* 不可见元素样式，用于保留空间 */
+		visibility: hidden;
 	}
 </style>
