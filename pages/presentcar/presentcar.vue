@@ -8,6 +8,11 @@
 					</uni-search-bar>
 				</uni-section>
 			</view>
+
+			<view class="space-holder" :style="{ height: fixedElementHeight + 'px' }">
+				占着位置的元素
+			</view>
+
 			<view class="uni-list-parent">
 				<view class="list-item" v-for="(item,index) in info"
 					:style="index===info.length-1?'margin-bottom: 20px;':''">
@@ -78,6 +83,7 @@
 	export default {
 		data() {
 			return {
+				fixedElementHeight: 50,
 				info: [{
 						licensePlate: "粤B66786",
 						carType: "临时车",
@@ -151,7 +157,24 @@
 				]
 			}
 		},
+		mounted: function() {
+			var _this = this;
+			var _that = this;
+			this.getDomConfig();
+		},
 		methods: {
+			getDomConfig() {
+				//等DOM 更新完成后才会执行
+				this.$nextTick(() => {
+					let that = this
+					//捕获“顶部数据”的高度
+					let info = uni.createSelectorQuery().select(".uni-section-search");
+					info.boundingClientRect(function(data) { //data - 各种参数
+						//console.log(data) // 获取元素的相关信息
+						that.fixedElementHeight = data.height
+					}).exec()
+				});
+			},
 			inputDialogToggle(item, index) {
 				this.$refs.inputDialog[index].open()
 				console.log("item" + item + "::index:" + index)
@@ -189,10 +212,22 @@
 </script>
 
 <style>
+
+	.uni-section-search {
+		z-index: 999;
+		background-color: #007aff;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+
 	.content {
-		display: flex;
-		flex-direction: column;
 		background-color: lightgray;
+	}
+	
+	.uni-list-parent{
+		text-align: center;
 	}
 
 	.list-item-first {
@@ -203,7 +238,7 @@
 	}
 
 	.list-item {
-		width: 370px;
+		width: 710rpx;
 		height: auto;
 		display: inline-flex;
 		flex-direction: column;
@@ -282,5 +317,10 @@
 
 	.button-third {
 		background-color: #F4A460;
+	}
+
+	.space-holder {
+		/* 不可见元素样式，用于保留空间 */
+		visibility: hidden;
 	}
 </style>

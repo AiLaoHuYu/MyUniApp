@@ -3,6 +3,7 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
+      fixedElementHeight: 50,
       info: [
         {
           licensePlate: "粤B66786",
@@ -77,7 +78,19 @@ const _sfc_main = {
       ]
     };
   },
+  mounted: function() {
+    this.getDomConfig();
+  },
   methods: {
+    getDomConfig() {
+      this.$nextTick(() => {
+        let that = this;
+        let info = common_vendor.index.createSelectorQuery().select(".uni-section-search");
+        info.boundingClientRect(function(data) {
+          that.fixedElementHeight = data.height;
+        }).exec();
+      });
+    },
     inputDialogToggle(item, index) {
       this.$refs.inputDialog[index].open();
       console.log("item" + item + "::index:" + index);
@@ -141,7 +154,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     h: common_vendor.p({
       type: "line"
     }),
-    i: common_vendor.f($data.info, (item, index, i0) => {
+    i: $data.fixedElementHeight + "px",
+    j: common_vendor.f($data.info, (item, index, i0) => {
       return {
         a: common_vendor.t(item.licensePlate),
         b: common_vendor.t(item.carType),
@@ -171,8 +185,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         q: common_vendor.s(index === $data.info.length - 1 ? "margin-bottom: 20px;" : "")
       };
     }),
-    j: common_vendor.o($options.dialogInputConfirm),
-    k: common_vendor.p({
+    k: common_vendor.o($options.dialogInputConfirm),
+    l: common_vendor.p({
       type: "dialog"
     })
   };

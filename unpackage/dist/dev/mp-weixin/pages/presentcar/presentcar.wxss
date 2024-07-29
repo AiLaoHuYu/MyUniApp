@@ -1,8 +1,17 @@
 
+.uni-section-search {
+		z-index: 999;
+		background-color: #007aff;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+}
 .content {
-		display: flex;
-		flex-direction: column;
 		background-color: lightgray;
+}
+.uni-list-parent{
+		text-align: center;
 }
 .list-item-first {
 		display: flow;
@@ -11,7 +20,7 @@
 		background-color: aliceblue;
 }
 .list-item {
-		width: 370px;
+		width: 710rpx;
 		height: auto;
 		display: inline-flex;
 		flex-direction: column;
@@ -79,4 +88,8 @@ button {
 }
 .button-third {
 		background-color: #F4A460;
+}
+.space-holder {
+		/* 不可见元素样式，用于保留空间 */
+		visibility: hidden;
 }
