@@ -1,0 +1,1 @@
+"use strict";const e=require("../../common/vendor.js"),n={data:()=>({}),methods:{login(){e.index.switchTab({url:"/pages/index/index"})}}};const o=e._export_sfc(n,[["render",function(n,o,t,r,a,i){return{a:e.o(((...e)=>i.login&&i.login(...e)))}}],["__scopeId","data-v-ef0f349a"]]);wx.createPage(o);
