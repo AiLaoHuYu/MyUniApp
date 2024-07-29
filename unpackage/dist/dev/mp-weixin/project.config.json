@@ -8,7 +8,7 @@
     "urlCheck": false,
     "es6": true,
     "postcss": true,
-    "minified": true,
+    "minified": false,
     "newFeature": true,
     "bigPackageSizeSupport": true,
     "babelSetting": {
@@ -18,11 +18,7 @@
     }
   },
   "compileType": "miniprogram",
-<<<<<<< HEAD
   "libVersion": "3.5.1",
-=======
-  "libVersion": "3.5.0",
->>>>>>> 1f6cb0e3f749c8a787086458c8dc774bba631c46
   "appid": "wx60b565db49facf04",
   "projectname": "MyUniApp",
   "condition": {},
