@@ -8,7 +8,7 @@
 				</view>
 			</view>
 			<view class="unin-flex unin-row">
-				<view class="uni-row-item" @click="goPresentCar">
+				<view class="uni-row-item" @click="goPresentCar()">
 					<view class="image-parent" style="background-color: #1E90FF;">
 						<image class="row-image" src="../../static/manager/present_car.png"></image>
 					</view>
@@ -16,7 +16,7 @@
 						在场车辆
 					</view>
 				</view>
-				<view class="uni-row-item">
+				<view class="uni-row-item" @click="goEntryExitRecords()">
 					<view class="image-parent" style="background-color: #FF8C00;">
 						<image class="row-image" src="../../static/manager/entry_exit_records.png"></image>
 					</view>
@@ -378,6 +378,11 @@
 			goPresentCar() {
 				uni.navigateTo({
 					url: '/pages/presentcar/presentcar'
+				})
+			},
+			goEntryExitRecords(){
+				uni.navigateTo({
+					url:'/pages/entryexitrecords/entryexitrecords'
 				})
 			}
 		}

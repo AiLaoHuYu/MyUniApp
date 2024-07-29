@@ -7921,6 +7921,14 @@ const pages = [
     }
   },
   {
+    path: "pages/entryexitrecords/entryexitrecords",
+    style: {
+      navigationBarTitleText: "掌上云停",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
+    }
+  },
+  {
     path: "pages/mine/mine",
     style: {
       navigationBarTitleText: "掌上云停",
@@ -7939,7 +7947,9 @@ const pages = [
   {
     path: "pages/carPictureDetail/carPictureDetail",
     style: {
-      navigationBarTitleText: ""
+      navigationBarTitleText: "掌上云停",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
     }
   }
 ];
