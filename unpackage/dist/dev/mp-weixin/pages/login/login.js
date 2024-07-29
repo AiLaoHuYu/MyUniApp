@@ -10,6 +10,7 @@ const _sfc_main = {
   },
   methods: {
     login() {
+<<<<<<< HEAD
       if (this.username.trim() === "admin" && this.password.trim() === "123456") {
         common_vendor.index.switchTab({
           url: "/pages/index/index"
@@ -47,11 +48,17 @@ const _sfc_main = {
           //持续时间为 2秒
         });
       }
+=======
+      common_vendor.index.switchTab({
+        url: "/pages/index/index"
+      });
+>>>>>>> 188ee71247613900f302b80aa8d81a5e14add290
     }
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
+<<<<<<< HEAD
     a: $data.yardName,
     b: common_vendor.o(($event) => $data.yardName = $event.detail.value),
     c: $data.username,
@@ -59,6 +66,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     e: $data.password,
     f: common_vendor.o(($event) => $data.password = $event.detail.value),
     g: common_vendor.o(($event) => $options.login())
+=======
+    a: common_vendor.o(($event) => $options.login())
+>>>>>>> 188ee71247613900f302b80aa8d81a5e14add290
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-e4e4508d"]]);

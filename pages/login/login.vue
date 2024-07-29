@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 	<view class="content">
 		<view class="topBox">
 			<h3>WELCOME</h3>
@@ -21,9 +22,34 @@
 			<button class="registerBtn">注册</button>
 		</view>
 	</view>
+=======
+  <view class="content">
+    <view class="topBox">
+      <h3>WELCOME</h3>
+      <h3>欢迎使用掌上云停车</h3>
+    </view>
+    <view class="inputBox">
+      <view class="ipt">
+        <h4>车场名称</h4>
+        <input type="text" value="" placeholder="请输入车场名称" />
+      </view>
+	  <view class="ipt">
+	    <h4>用户名</h4>
+	    <input type="text" value="" placeholder="请输入用户名" />
+	  </view>
+      <view class="ipt">
+        <h4>密码</h4>
+        <input type="text" value="" placeholder="请输入密码" />
+      </view>
+      <button class="loginBtn" @click="login()">登录</button>
+      <button class="registerBtn">注册</button>
+    </view>
+  </view>
+>>>>>>> 188ee71247613900f302b80aa8d81a5e14add290
 </template>
 
 <script>
+<<<<<<< HEAD
 	export default {
 		data() {
 			return {
@@ -66,6 +92,20 @@
 				}
 
 			}
+=======
+  export default {
+    data() {
+      return {
+ 
+      }
+    },
+    methods: {
+		login(){
+			// 跳转至登录页面
+			uni.switchTab({
+				url: '/pages/index/index'
+			})
+>>>>>>> 188ee71247613900f302b80aa8d81a5e14add290
 		}
 	}
 </script>
