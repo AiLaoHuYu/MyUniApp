@@ -1,48 +1,31 @@
 <template>
-	<view class="wrapper">
-		<!-- 个人资料 -->
-		<view>
-			<view class="top">
-				<view class="center">
-					<view v-if="isLoggedIn">
-						<view class="center_top">
-							<view class="center_img">
-								<!-- 这里可以放自己的静态头像 -->
-								<image src="/static/mine/admin_head.png"></image>
-								<!-- <open-data type="userAvatarUrl" class="user_head"></open-data> -->
-							</view>
-							<view class="center_info">
-								<view class="center_name">
-									村委创意产业园
-								</view>
-								<view class="center_vip">
-									<uni-icons type="vip" size="14"></uni-icons>
-									<view class="vip_text">
-										<text>账号:admin</text>
-									</view>
-								</view>
-								<!-- 其他个人中心内容 -->
-							</view>
-							<view class="changeParkingButton">切换车场</view>
-						</view>
-
-					</view>
-					<view v-else class="loginButton" @click="onLoginClick">登录</view>
-				</view>
-
+	<view>
+		<view class="upper-box">
+			<view class="tip-box">
+				<view class="tip">欢迎您，admin!</view>
+				<view class="btn">切换车场 ></view>
+			</view>
+			<view class="setting">
+				<image src="../../static/mine/admin_head.png"></image>
 			</view>
 		</view>
-
-		<!-- 其它 -->
-		<view class="extra">
-			<uni-list>
-				<uni-list-item showArrow thumb="" title="修改密码" link to="/pages/"></uni-list-item>
-				<uni-list-item showArrow title="厂商登录"></uni-list-item>
-				<uni-list>
-					<view v-if="isLoggedIn" class="exitButton" @click="onExitClick()">退出</view>
-				</uni-list>
-			</uni-list>
-
+		<view class="lower-box">
+			<view class="menu">
+				<image src="../../static/mine/changePassword.png"></image>
+				<text>修改密码</text>
+			</view>
+			<view class="menu">
+				<image src="../../static/mine/changshangLogin.png"></image>
+				<text>厂商登录</text>
+			</view>
+			<view class="menu">
+				<image src="../../static/mine/mySetting.png"></image>
+				<text>我的设置</text>
+			</view>
+			<view class="menu">
+				<image src="../../static/mine/exitLogin.png"></image>
+				<text>退出登录</text>
+			</view>
 		</view>
 	</view>
 </template>
@@ -50,211 +33,83 @@
 <script>
 	export default {
 		data() {
-			return {
-				isLoggedIn: true,
-				userInfo: {}
-			}
+			return {};
 		},
-		computed: {
-
-		},
-		created() {
-
-		},
-		methods: {
-			onExitClick() {
-				// 跳转至登录页面
-				uni.reLaunch({ url: '/pages/login/login' });
-			}
-
-		}
 	};
 </script>
 
-<style scoped lang="scss">
-	Page {
-		font-size: 14rpx;
-	}
-
-	.top {
-		width: 100%;
-		height: 200rpx;
-		// background: #23EBB9;
-		background: #2979ff;
-		padding-top: 30rpx;
+<style lang="scss">
+	.upper-box {
 		position: relative;
-	}
-
-	.center {
-		width: 95%;
-		height: 160rpx;
-		background: #55aaff;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		/* 水平居中 */
-		align-items: center;
-		/* 垂直居中 */
-		margin: 0 auto;
-		border-radius: 5rpx;
-	}
-
-	.center_top {
-		display: flex;
-		min-width: 350rpx;
-		flex-direction: row;
-		//background: #ffaa7f;
-		height: 100rpx;
-		margin-top: 0rpx;
-		border-bottom: 1rpx solid #5555ff;
-	}
-
-	.center_img {
-		width: 90rpx;
-		height: 90rpx;
-		border-radius: 50%;
-		overflow: hidden;
-	}
-
-	.center_img image {
 		width: 100%;
-		height: 100%;
-	}
+		height: 400rpx;
+		border-bottom-right-radius: 50rpx;
+		border-bottom-left-radius: 50rpx;
+		background: linear-gradient(to right, #2859fe, #1ba0ff);
 
-	.center_img .user_head {
-		width: 100%;
-		height: 100%;
-	}
+		.tip-box {
+			padding: 50rpx 0 0 50rpx;
 
-	.center_info {
-		display: flex;
-		flex-direction: column;
-		margin-top: 20rpx;
-		margin-left: 20rpx;
-	}
+			.tip {
+				font-size: 50rpx;
+				line-height: 100rpx;
+				color: #FFFFFF;
+			}
 
-	.center_name {
-		font-size: 24rpx;
-		color: white;
-		font-weight: bold;
-	}
-
-	.center_phone {
-		color: #BEBEBE;
-	}
-
-	// .center_down {
-	// 	display: flex;
-	// 	flex-direction: row;
-	// 	width: 80%;
-	// 	height: 35px;
-	// 	margin: 0 auto;
-	// 	margin-top: 20rpx;
-	// }
-
-	.rank_text {
-		height: 35rpx;
-		line-height: 35rpx;
-		margin-left: 10rpx;
-		color: #AAAAAA;
-	}
-
-	.center_vip image {
-		width: 20rpx;
-		height: 20rpx;
-		margin-top: 10rpx;
-	}
-
-	.vip_icon {
-		width: 25rpx;
-		height: 25rpx;
-		margin-top: 5rpx;
-	}
-
-	.vip_text {
-		font-size: 24rpx;
-		margin-top: -33rpx;
-		margin-left: 40rpx;
-		color: white;
-	}
-
-	.wrapper {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		background-color: #F4F4F4;
-	}
-
-	.extra {
-		margin: 10rpx 20rpx;
-		background-color: #fff;
-		border-radius: 4rpx;
-
-		.item {
-			line-height: 1;
-			padding: 25rpx 0 25rpx 20rpx;
-			border-bottom: 1rpx solid #eee;
-			font-size: 30rpx;
-			color: #333;
+			.btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 250rpx;
+				height: 60rpx;
+				border-radius: 50rpx;
+				color: #2859fe;
+				background-color: #FFFFFF;
+			}
 		}
-
-		button {
-			text-align: left;
-			background-color: #fff;
-
-			&::after {
-				border: none;
-				border-radius: 0;
+		
+		.setting{
+			position: absolute;
+			top: 50rpx;
+			right: 50rpx;
+			
+			image{
+				width: 60rpx;
+				height: 60rpx;
 			}
 		}
 	}
 
-	.icon-arrow {
+	.lower-box {
 		position: relative;
+		top: -80rpx;
+		padding: 0 20rpx;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
 
-		&::before {
-			position: absolute;
-			top: 50%;
-			right: 20rpx;
-			transform: translateY(-50%);
+		.menu {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			margin: 30rpx;
+			width: 250rpx;
+			height: 300rpx;
+			background-color: #FFFFFF;
+			border-radius: 30rpx;
+			box-shadow: 0 5rpx 15rpx #e1e1e1;
+
+			image {
+				width: 120rpx;
+				height: 120rpx;
+			}
+
+			text {
+				font-size: 28rpx;
+				padding-top: 50rpx;
+			}
 		}
 	}
-
-	.exitButton {
-		margin: 20rpx;
-		width: 95%;
-		height: 60rpx;
-		background-color: skyblue;
-		/* 设置背景颜色为蓝色 */
-		color: white;
-		/* 设置文本颜色为白色 */
-		font-size: 24rpx;
-		/* 设置字体大小为 16px */
-		text-align: center;
-		line-height: 60rpx;
-		border-radius: 20rpx;
-		/* 设置圆角 */
-		cursor: pointer;
-		/* 设置鼠标样式为指针 */
-	}
-
-	.changeParkingButton {
-		padding: 20rpx 60rpx;
-		margin-left: 20rpx;
-		margin-top: 10rpx;
-		width: 100rpx;
-		height: 40rpx;
-		background-color: skyblue;
-		/* 设置背景颜色为蓝色 */
-		color: white;
-		/* 设置文本颜色为白色 */
-		font-size: 24rpx;
-		/* 设置字体大小为 16px */
-		text-align: center;
-		border-radius: 23rpx;
-		/* 设置圆角 */
-		cursor: pointer;
-		/* 设置鼠标样式为指针 */
-	}
 </style>
+

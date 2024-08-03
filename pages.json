@@ -3,9 +3,7 @@
 		{
 			"path": "pages/login/login",
 			"style": {
-				"navigationBarTitleText": "掌上云停",
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007aff"
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -49,9 +47,8 @@
 			}
 		},
 		{
-			"path" : "pages/carPictureDetail/carPictureDetail",
-			"style" : 
-			{
+			"path": "pages/carPictureDetail/carPictureDetail",
+			"style": {
 				"navigationBarTitleText": "掌上云停",
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#007aff"

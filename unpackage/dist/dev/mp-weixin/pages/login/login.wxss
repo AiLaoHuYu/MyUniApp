@@ -2,13 +2,20 @@
 .content.data-v-e4e4508d {
 		height: 100vh;
 		background-color: aquamarine;
-		background: url("https://www.galaxyclub.cn/Upload/IMAGES/15/0615/38af439784544e95b7c64cad64a14157_650x650.jpg") no-repeat;
+		background: url("https://www.galaxyclub.cn/Upload/IMAGES/15/0615/38af439784544e95b7c64cad64a14157_650x650.jpg");
 		background-size: cover;
 }
 .topBox.data-v-e4e4508d {
 		font-size: 34rpx;
 		color: #fff;
 		padding: 80rpx 50rpx;
+}
+.title.data-v-e4e4508d {
+		padding-top: 100rpx;
+		font-size: 34rpx;
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
 }
 h3.data-v-e4e4508d {
 		margin-bottom: 10rpx;
@@ -18,7 +25,7 @@ h3.data-v-e4e4508d {
 		bottom: 0;
 		left: 0;
 		width: 750rpx;
-		height: 85vh;
+		height: 80vh;
 		background-color: #fff;
 		border-top-left-radius: 40rpx;
 		border-top-right-radius: 40rpx;

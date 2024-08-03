@@ -8,16 +8,38 @@
 		height: 100%;
 		/*设置容器内部容器的排列方向*/
 }
+.item-parent {
+		display: inline-flex;
+		flex-direction: row;
+		width: 300rpx;
+		padding: 20rpx;
+		border-radius: 10rpx;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(90deg, #5c83ba, #c4d2ec, #f2f1ed);
+}
+.item-img {
+		width: 100rpx;
+		height: 100rpx;
+}
+.item-text {
+		margin-right: 40rpx;
+		color: #000;
+		font-weight: bold;
+		font-size: 28rpx;
+}
 .unin-column {
 		display: inline-flex;
 		flex-direction: column;
-		flex-wrap: wrap;
 		background-color: white;
 		margin-top: 20rpx;
-		margin-left: 20rpx;
-		margin-right: 20rpx;
-		padding: 20rpx;
-		border-radius: 8rpx;
+}
+.item-row {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		background-color: white;
+		padding: 15rpx;
 }
 .unin-row {
 		display: inline-flex;
@@ -55,6 +77,7 @@
 }
 .row-item-title {
 		font-size: 30rpx;
+		padding: 15rpx;
 		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 }

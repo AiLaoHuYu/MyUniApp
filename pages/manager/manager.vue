@@ -1,105 +1,97 @@
 <template>
 	<view class="container">
-		<!-- 	可以定义各种各样的组件来配合flex布局 -->
+
 		<view class="unin-flex unin-column">
 			<view>
 				<view class="row-item-title">
 					车场信息
 				</view>
 			</view>
-			<view class="unin-flex unin-row">
-				<view class="uni-row-item" @click="goPresentCar()">
-					<view class="image-parent" style="background-color: #1E90FF;">
-						<image class="row-image" src="../../static/manager/present_car.png"></image>
-					</view>
-					<view class="row-text">
+			<view class="unin-flex item-row">
+
+				<view class="item-parent" @click="goPresentCar()" style="margin-right: 40rpx;">
+					<view class="item-text">
 						在场车辆
 					</view>
+					<image class="item-img" src="../../static/manager/presentCar.png"></image>
 				</view>
-				<view class="uni-row-item" @click="goEntryExitRecords()">
-					<view class="image-parent" style="background-color: #FF8C00;">
-						<image class="row-image" src="../../static/manager/entry_exit_records.png"></image>
-					</view>
-					<view class="row-text">
+
+				<view class="item-parent" @click="goEntryExitRecords()">
+
+					<view class="item-text">
 						进出记录
 					</view>
+					<image class="item-img" src="../../static/manager/exitEntryRecords.png"></image>
 				</view>
 
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #3CB371;">
-						<image class="row-image" src="../../static/manager/car_waiting.png"></image>
-					</view>
-					<view class="row-text">
+				<view class="item-parent" style="margin-right: 40rpx;margin-top: 20rpx;margin-bottom: 20rpx">
+					<view class="item-text">
 						等待处理
 					</view>
+					<image class="item-img" src="../../static/manager/presentCar.png"></image>
 				</view>
 
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color:#fb0040;">
-						<image class="row-image" src="../../static/manager/home_diagram.png"></image>
-					</view>
-					<view class="row-text">
+				<view class="item-parent" style="margin-top: 20rpx;margin-bottom: 20rpx;">
+
+					<view class="item-text">
 						首页表图
 					</view>
+					<image class="item-img" src="../../static/manager/exitEntryRecords.png"></image>
 				</view>
-			</view>
-		</view>
 
+			</view>
+
+		</view>
+		
 		<view class="unin-flex unin-column">
 			<view>
 				<view class="row-item-title">
 					基础配置
 				</view>
 			</view>
-			<view class="unin-flex unin-row">
-
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #FF8C00;">
-						<image class="row-image" src="../../static/manager/area_setting.png"></image>
-					</view>
-					<view class="row-text">
+			<view class="unin-flex item-row">
+		
+				<view class="item-parent" @click="goPresentCar()" style="margin-right: 40rpx;">
+					<view class="item-text">
 						区域配置
 					</view>
+					<image class="item-img" src="../../static/manager/area_setting.png"></image>
 				</view>
-
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #1E90FF;">
-						<image class="row-image" src="../../static/manager/passage.png"></image>
-					</view>
-					<view class="row-text">
+		
+				<view class="item-parent" @click="goEntryExitRecords()">
+		
+					<view class="item-text">
 						通道配置
 					</view>
+					<image class="item-img" src="../../static/manager/passage.png"></image>
 				</view>
-
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #A0522D;">
-						<image class="row-image" src="../../static/manager/permissions.png"></image>
-					</view>
-					<view class="row-text">
+		
+				<view class="item-parent" style="margin-right: 40rpx;margin-top: 20rpx;margin-bottom: 20rpx">
+					<view class="item-text">
 						通道权限
 					</view>
+					<image class="item-img" src="../../static/manager/permissions.png"></image>
 				</view>
-
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #3CB371;">
-						<image class="row-image" src="../../static/manager/camera.png"></image>
-					</view>
-					<view class="row-text">
+		
+				<view class="item-parent" style="margin-top: 20rpx;margin-bottom: 20rpx;">
+		
+					<view class="item-text">
 						相机配置
 					</view>
+					<image class="item-img" src="../../static/manager/camera.png"></image>
 				</view>
-
-				<view class="uni-row-item">
-					<view class="image-parent" style="background-color: #228B22;margin-top: 5px;">
-						<image class="row-image" src="../../static/manager/network_motherboard.png"></image>
-					</view>
-					<view class="row-text">
+				
+				<view class="item-parent" style="margin-bottom: 20rpx;">
+						
+					<view class="item-text">
 						网络主板
 					</view>
+					<image class="item-img" src="../../static/manager/network_motherboard.png"></image>
 				</view>
-
+		
 			</view>
 		</view>
+
 
 		<view class="unin-flex unin-column">
 			<view>
@@ -380,9 +372,9 @@
 					url: '/pages/presentcar/presentcar'
 				})
 			},
-			goEntryExitRecords(){
+			goEntryExitRecords() {
 				uni.navigateTo({
-					url:'/pages/entryexitrecords/entryexitrecords'
+					url: '/pages/entryexitrecords/entryexitrecords'
 				})
 			}
 		}
@@ -401,16 +393,42 @@
 		/*设置容器内部容器的排列方向*/
 	}
 
+	.item-parent {
+		display: inline-flex;
+		flex-direction: row;
+		width: 300rpx;
+		padding: 20rpx;
+		border-radius: 10rpx;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(90deg, #5c83ba, #c4d2ec, #f2f1ed);
+	}
+
+	.item-img {
+		width: 100rpx;
+		height: 100rpx;
+	}
+
+	.item-text {
+		margin-right: 40rpx;
+		color: #000;
+		font-weight: bold;
+		font-size: 28rpx;
+	}
+
 	.unin-column {
 		display: inline-flex;
 		flex-direction: column;
-		flex-wrap: wrap;
 		background-color: white;
 		margin-top: 20rpx;
-		margin-left: 20rpx;
-		margin-right: 20rpx;
-		padding: 20rpx;
-		border-radius: 8upx;
+	}
+
+	.item-row {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		background-color: white;
+		padding: 15rpx;
 	}
 
 	.unin-row {
@@ -455,6 +473,7 @@
 
 	.row-item-title {
 		font-size: 30upx;
+		padding: 15rpx;
 		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 	}

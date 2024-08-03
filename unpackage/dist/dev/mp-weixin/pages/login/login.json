@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "掌上云停",
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#007aff",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

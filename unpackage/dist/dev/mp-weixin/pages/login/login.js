@@ -10,11 +10,7 @@ const _sfc_main = {
   },
   methods: {
     login() {
-      if (this.username.trim() === "admin" && this.password.trim() === "123456") {
-        common_vendor.index.switchTab({
-          url: "/pages/index/index"
-        });
-      } else if (this.yardName.trim() === "") {
+      if (this.yardName.trim() === "") {
         common_vendor.index.showToast({
           title: "车场名称为空",
           icon: "none",
@@ -39,12 +35,8 @@ const _sfc_main = {
           //持续时间为 2秒
         });
       } else {
-        common_vendor.index.showToast({
-          title: "用户名或密码错误",
-          icon: "none",
-          //如果要纯文本，不要icon，将值设为'none'
-          duration: 2e3
-          //持续时间为 2秒
+        common_vendor.index.switchTab({
+          url: "/pages/index/index"
         });
       }
     }

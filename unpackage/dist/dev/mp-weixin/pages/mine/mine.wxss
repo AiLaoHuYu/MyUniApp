@@ -23,155 +23,66 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-Page.data-v-7c2ebfa5 {
-  font-size: 14rpx;
-}
-.top.data-v-7c2ebfa5 {
-  width: 100%;
-  height: 200rpx;
-  background: #2979ff;
-  padding-top: 30rpx;
+.upper-box {
   position: relative;
+  width: 100%;
+  height: 400rpx;
+  border-bottom-right-radius: 50rpx;
+  border-bottom-left-radius: 50rpx;
+  background: linear-gradient(to right, #2859fe, #1ba0ff);
 }
-.center.data-v-7c2ebfa5 {
-  width: 95%;
-  height: 160rpx;
-  background: #55aaff;
+.upper-box .tip-box {
+  padding: 50rpx 0 0 50rpx;
+}
+.upper-box .tip-box .tip {
+  font-size: 50rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+}
+.upper-box .tip-box .btn {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  /* 水平居中 */
   align-items: center;
-  /* 垂直居中 */
-  margin: 0 auto;
-  border-radius: 5rpx;
-}
-.center_top.data-v-7c2ebfa5 {
-  display: flex;
-  min-width: 350rpx;
-  flex-direction: row;
-  height: 100rpx;
-  margin-top: 0rpx;
-  border-bottom: 1rpx solid #5555ff;
-}
-.center_img.data-v-7c2ebfa5 {
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.center_img image.data-v-7c2ebfa5 {
-  width: 100%;
-  height: 100%;
-}
-.center_img .user_head.data-v-7c2ebfa5 {
-  width: 100%;
-  height: 100%;
-}
-.center_info.data-v-7c2ebfa5 {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-}
-.center_name.data-v-7c2ebfa5 {
-  font-size: 24rpx;
-  color: white;
-  font-weight: bold;
-}
-.center_phone.data-v-7c2ebfa5 {
-  color: #BEBEBE;
-}
-.rank_text.data-v-7c2ebfa5 {
-  height: 35rpx;
-  line-height: 35rpx;
-  margin-left: 10rpx;
-  color: #AAAAAA;
-}
-.center_vip image.data-v-7c2ebfa5 {
-  width: 20rpx;
-  height: 20rpx;
-  margin-top: 10rpx;
-}
-.vip_icon.data-v-7c2ebfa5 {
-  width: 25rpx;
-  height: 25rpx;
-  margin-top: 5rpx;
-}
-.vip_text.data-v-7c2ebfa5 {
-  font-size: 24rpx;
-  margin-top: -33rpx;
-  margin-left: 40rpx;
-  color: white;
-}
-.wrapper.data-v-7c2ebfa5 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #F4F4F4;
-}
-.extra.data-v-7c2ebfa5 {
-  margin: 10rpx 20rpx;
-  background-color: #fff;
-  border-radius: 4rpx;
-}
-.extra .item.data-v-7c2ebfa5 {
-  line-height: 1;
-  padding: 25rpx 0 25rpx 20rpx;
-  border-bottom: 1rpx solid #eee;
-  font-size: 30rpx;
-  color: #333;
-}
-.extra button.data-v-7c2ebfa5 {
-  text-align: left;
-  background-color: #fff;
-}
-.extra button.data-v-7c2ebfa5::after {
-  border: none;
-  border-radius: 0;
-}
-.icon-arrow.data-v-7c2ebfa5 {
-  position: relative;
-}
-.icon-arrow.data-v-7c2ebfa5::before {
-  position: absolute;
-  top: 50%;
-  right: 20rpx;
-  transform: translateY(-50%);
-}
-.exitButton.data-v-7c2ebfa5 {
-  margin: 20rpx;
-  width: 95%;
+  width: 250rpx;
   height: 60rpx;
-  background-color: skyblue;
-  /* 设置背景颜色为蓝色 */
-  color: white;
-  /* 设置文本颜色为白色 */
-  font-size: 24rpx;
-  /* 设置字体大小为 16px */
-  text-align: center;
-  line-height: 60rpx;
-  border-radius: 20rpx;
-  /* 设置圆角 */
-  cursor: pointer;
-  /* 设置鼠标样式为指针 */
+  border-radius: 50rpx;
+  color: #2859fe;
+  background-color: #FFFFFF;
 }
-.changeParkingButton.data-v-7c2ebfa5 {
-  padding: 20rpx 60rpx;
-  margin-left: 20rpx;
-  margin-top: 10rpx;
-  width: 100rpx;
-  height: 40rpx;
-  background-color: skyblue;
-  /* 设置背景颜色为蓝色 */
-  color: white;
-  /* 设置文本颜色为白色 */
-  font-size: 24rpx;
-  /* 设置字体大小为 16px */
-  text-align: center;
-  border-radius: 23rpx;
-  /* 设置圆角 */
-  cursor: pointer;
-  /* 设置鼠标样式为指针 */
+.upper-box .setting {
+  position: absolute;
+  top: 50rpx;
+  right: 50rpx;
+}
+.upper-box .setting image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.lower-box {
+  position: relative;
+  top: -80rpx;
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.lower-box .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30rpx;
+  width: 250rpx;
+  height: 300rpx;
+  background-color: #FFFFFF;
+  border-radius: 30rpx;
+  box-shadow: 0 5rpx 15rpx #e1e1e1;
+}
+.lower-box .menu image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.lower-box .menu text {
+  font-size: 28rpx;
+  padding-top: 50rpx;
 }

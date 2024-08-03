@@ -90,7 +90,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.isShwoOther ? {} : {}, {
     e: $data.isShwoImage
   }, $data.isShwoImage ? {
-    f: common_assets._imports_1$1
+    f: common_assets._imports_1$2
   } : {}, {
     g: $data.isShwoOther
   }, $data.isShwoOther ? {
