@@ -1,83 +1,150 @@
-
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
 .container {
-		/* 定义flex容器 */
-		display: flex;
-		flex-direction: column;
-		background-color: lightgray;
-		width: 100%;
-		height: 100%;
-		/*设置容器内部容器的排列方向*/
+  /* 定义flex容器 */
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  width: 100%;
+  height: 100%;
+  /*设置容器内部容器的排列方向*/
+}
+.home swiper {
+  width: 750rpx;
+  height: 470rpx;
+}
+.home swiper image {
+  width: 100%;
+  height: 100%;
 }
 .item-parent {
-		display: inline-flex;
-		flex-direction: row;
-		width: 300rpx;
-		padding: 20rpx;
-		border-radius: 10rpx;
-		justify-content: center;
-		align-items: center;
-		background: linear-gradient(90deg, #5c83ba, #c4d2ec, #f2f1ed);
+  display: inline-flex;
+  flex-direction: row;
+  width: 300rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #5c83ba, #c4d2ec, #f2f1ed);
+}
+.item-parent-sceond {
+  display: inline-flex;
+  flex-direction: row;
+  width: 300rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #d3d3d3, #696969);
+}
+.item-parent-third {
+  display: inline-flex;
+  flex-direction: row;
+  width: 300rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #fffdd0, #f5f5dc, #d2b48c);
+}
+.item-parent-four {
+  display: inline-flex;
+  flex-direction: row;
+  width: 300rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #bee4a0, #faf8ef);
 }
 .item-img {
-		width: 100rpx;
-		height: 100rpx;
+  width: 130rpx;
+  height: 100rpx;
 }
 .item-text {
-		margin-right: 40rpx;
-		color: #000;
-		font-weight: bold;
-		font-size: 28rpx;
+  margin-right: 40rpx;
+  color: #000;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.unin-column-first {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: white;
 }
 .unin-column {
-		display: inline-flex;
-		flex-direction: column;
-		background-color: white;
-		margin-top: 20rpx;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 20rpx;
 }
 .item-row {
-		display: inline-flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		background-color: white;
-		padding: 15rpx;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 15rpx;
 }
 .unin-row {
-		display: inline-flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		padding-top: 20rpx;
-		line-height: 40rpx;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 20rpx;
+  line-height: 40rpx;
 }
 .uni-row-item {
-		display: inline-flex;
-		flex-direction: column;
-		width: 25%;
-		height: auto;
-		align-items: center;
-		justify-content: center;
+  display: inline-flex;
+  flex-direction: column;
+  width: 25%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
 }
 .row-image {
-		width: 70rpx;
-		height: 70rpx;
+  width: 70rpx;
+  height: 70rpx;
 }
 .image-parent {
-		width: 80rpx;
-		height: 80rpx;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 10rpx;
-		border-radius: 8rpx;
+  width: 80rpx;
+  height: 80rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+  border-radius: 8rpx;
 }
 .row-text {
-		font-size: 24rpx;
-		padding-top: 5rpx;
-		font-family: Arial, Helvetica, sans-serif;
-		text-align: center;
+  font-size: 24rpx;
+  padding-top: 5rpx;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 .row-item-title {
-		font-size: 30rpx;
-		padding: 15rpx;
-		font-family: Arial, Helvetica, sans-serif;
-		font-weight: bold;
+  font-size: 30rpx;
+  padding: 15rpx;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }

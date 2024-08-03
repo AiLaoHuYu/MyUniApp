@@ -53,6 +53,13 @@
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#007aff"
 			}
+		},
+		{
+			"path" : "pages/mainChart/mainChart",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
 	],
 	"tabBar": {

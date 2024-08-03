@@ -9,6 +9,7 @@ if (!Math) {
   "./pages/mine/mine.js";
   "./pages/presentcar/presentcar.js";
   "./pages/carPictureDetail/carPictureDetail.js";
+  "./pages/mainChart/mainChart.js";
 }
 const _sfc_main = {
   onLaunch: function() {

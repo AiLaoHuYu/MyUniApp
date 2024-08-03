@@ -6,7 +6,8 @@
     "pages/entryexitrecords/entryexitrecords",
     "pages/mine/mine",
     "pages/presentcar/presentcar",
-    "pages/carPictureDetail/carPictureDetail"
+    "pages/carPictureDetail/carPictureDetail",
+    "pages/mainChart/mainChart"
   ],
   "window": {
     "navigationBarTextStyle": "black",

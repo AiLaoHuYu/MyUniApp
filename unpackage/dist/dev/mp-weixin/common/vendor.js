@@ -1539,8 +1539,8 @@ function populateParameters(fromRes, toRes) {
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "4.24",
-    uniRuntimeVersion: "4.24",
+    uniCompileVersion: "4.23",
+    uniRuntimeVersion: "4.23",
     uniPlatform: "mp-weixin",
     deviceBrand,
     deviceModel: model,
@@ -7948,6 +7948,12 @@ const pages = [
       navigationBarTitleText: "掌上云停",
       navigationBarTextStyle: "white",
       navigationBarBackgroundColor: "#007aff"
+    }
+  },
+  {
+    path: "pages/mainChart/mainChart",
+    style: {
+      navigationBarTitleText: ""
     }
   }
 ];

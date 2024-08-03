@@ -22,7 +22,7 @@
 				<image src="../../static/mine/mySetting.png"></image>
 				<text>我的设置</text>
 			</view>
-			<view class="menu">
+			<view class="menu" @click="goLogin()">
 				<image src="../../static/mine/exitLogin.png"></image>
 				<text>退出登录</text>
 			</view>
@@ -35,6 +35,13 @@
 		data() {
 			return {};
 		},
+		methods:{
+			goLogin(){
+				uni.reLaunch({
+					url:'/pages/login/login'
+				})
+			}
+		}
 	};
 </script>
 
