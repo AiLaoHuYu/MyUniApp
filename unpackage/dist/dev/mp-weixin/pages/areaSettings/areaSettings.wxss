@@ -1,0 +1,93 @@
+
+.uni-section-search {
+		z-index: 999;
+		background-color: #007aff;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+}
+page{
+		height: 100%;
+		background-color: lightgray;
+}
+.uni-list-parent {
+		text-align: center;
+}
+.list-item-first {
+		display: flow;
+		height: 50px;
+		line-height: 50px;
+		background-color: aliceblue;
+}
+.list-item {
+		width: 710rpx;
+		height: auto;
+		display: inline-flex;
+		flex-direction: column;
+		border-radius: 3px;
+		padding: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		box-sizing: border-box;
+		background-color: white;
+}
+.list-item-text-first-left {
+		font-size: 16px;
+		color: royalblue;
+		font-weight: bold;
+		padding-left: 10px;
+		float: left;
+}
+.list-item-text-first-right {
+		font-size: 16px;
+		color: royalblue;
+		font-weight: bold;
+		padding-right: 10px;
+		float: right;
+}
+.list-item-text-left {
+		font-size: 16px;
+		color: gray;
+		float: left;
+		font-weight: bold;
+		padding-right: 10px;
+}
+.list-item-other {
+		margin-top: 10px;
+}
+.list-item-text-right {
+		font-size: 16px;
+		color: black;
+		float: right;
+}
+.divider {
+		margin-top: 30rpx;
+		background-color: #E0E3DA;
+		width: 100%;
+		height: 3rpx;
+}
+.button-parent {
+		display: flow;
+		float: right;
+}
+button {
+		margin-top: 10rpx;
+		width: 150rpx;
+		height: 65rpx;
+		font-size: 24rpx;
+		color: white;
+		float: right;
+}
+.button-second{
+		background-color: #00BFFF;
+		margin-left: 20rpx;
+}
+.button-third {
+		background-color: #F4A460;
+}
+.space-holder {
+		/* 不可见元素样式，用于保留空间 */
+		visibility: hidden;
+}

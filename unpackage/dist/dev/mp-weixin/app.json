@@ -7,7 +7,9 @@
     "pages/mine/mine",
     "pages/presentcar/presentcar",
     "pages/carPictureDetail/carPictureDetail",
-    "pages/mainChart/mainChart"
+    "pages/mainChart/mainChart",
+    "pages/areaSettings/areaSettings",
+    "pages/areaEdit/areaEdit"
   ],
   "window": {
     "navigationBarTextStyle": "black",

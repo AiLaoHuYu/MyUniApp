@@ -29,6 +29,11 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: "/pages/mainChart/mainChart"
       });
+    },
+    goAreaSettings() {
+      common_vendor.index.navigateTo({
+        url: "/pages/areaSettings/areaSettings"
+      });
     }
   }
 };
@@ -47,20 +52,21 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     g: common_assets._imports_3,
     h: common_vendor.o(($event) => $options.goMainChart()),
     i: common_assets._imports_4,
-    j: common_assets._imports_5,
-    k: common_assets._imports_6,
-    l: common_assets._imports_7,
-    m: common_assets._imports_8,
-    n: common_assets._imports_9,
-    o: common_assets._imports_10,
-    p: common_assets._imports_11,
-    q: common_assets._imports_12,
-    r: common_assets._imports_13,
-    s: common_assets._imports_14,
-    t: common_assets._imports_15,
-    v: common_assets._imports_16,
-    w: common_assets._imports_17,
-    x: common_assets._imports_18
+    j: common_vendor.o(($event) => $options.goAreaSettings()),
+    k: common_assets._imports_5,
+    l: common_assets._imports_6,
+    m: common_assets._imports_7,
+    n: common_assets._imports_8,
+    o: common_assets._imports_9,
+    p: common_assets._imports_10,
+    q: common_assets._imports_11,
+    r: common_assets._imports_12,
+    s: common_assets._imports_13,
+    t: common_assets._imports_14,
+    v: common_assets._imports_15,
+    w: common_assets._imports_16,
+    x: common_assets._imports_17,
+    y: common_assets._imports_18
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);

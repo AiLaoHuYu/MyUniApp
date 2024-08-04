@@ -59,7 +59,7 @@
 			</view>
 			<view class="unin-flex item-row">
 
-				<view class="item-parent-sceond" style="margin-right: 40rpx;">
+				<view class="item-parent-sceond" @click="goAreaSettings()" style="margin-right: 40rpx;">
 					<view class="item-text">
 						区域配置
 					</view>
@@ -232,6 +232,11 @@
 			goMainChart(){
 				uni.navigateTo({
 					url: '/pages/mainChart/mainChart'
+				})
+			},
+			goAreaSettings(){
+				uni.navigateTo({
+					url:'/pages/areaSettings/areaSettings'
 				})
 			}
 		}

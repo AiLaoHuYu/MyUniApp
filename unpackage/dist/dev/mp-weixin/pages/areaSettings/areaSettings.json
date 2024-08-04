@@ -3,6 +3,6 @@
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#007aff",
   "usingComponents": {
-    "uni-list-item": "../../uni_modules/uni-list/components/uni-list-item/uni-list-item"
+    "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar"
   }
 }

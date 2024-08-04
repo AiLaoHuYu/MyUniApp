@@ -7953,7 +7953,25 @@ const pages = [
   {
     path: "pages/mainChart/mainChart",
     style: {
-      navigationBarTitleText: ""
+      navigationBarTitleText: "掌上云停",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
+    }
+  },
+  {
+    path: "pages/areaSettings/areaSettings",
+    style: {
+      navigationBarTitleText: "掌上云停",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
+    }
+  },
+  {
+    path: "pages/areaEdit/areaEdit",
+    style: {
+      navigationBarTitleText: "掌上云停",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
     }
   }
 ];

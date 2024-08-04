@@ -10,6 +10,8 @@ if (!Math) {
   "./pages/presentcar/presentcar.js";
   "./pages/carPictureDetail/carPictureDetail.js";
   "./pages/mainChart/mainChart.js";
+  "./pages/areaSettings/areaSettings.js";
+  "./pages/areaEdit/areaEdit.js";
 }
 const _sfc_main = {
   onLaunch: function() {
