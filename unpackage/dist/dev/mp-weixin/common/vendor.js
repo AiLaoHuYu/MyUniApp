@@ -7962,8 +7962,7 @@ const pages = [
     path: "pages/areaSettings/areaSettings",
     style: {
       navigationBarTitleText: "掌上云停",
-      navigationBarTextStyle: "white",
-      navigationBarBackgroundColor: "#007aff"
+      navigationBarTextStyle: "white"
     }
   },
   {
