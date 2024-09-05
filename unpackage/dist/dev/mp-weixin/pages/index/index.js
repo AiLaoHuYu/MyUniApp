@@ -3,6 +3,15 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
+      fixedElementHeight: 50,
+      current: 1,
+      tabList: [{
+        id: 1,
+        name: "今日"
+      }, {
+        id: 2,
+        name: "本周"
+      }],
       todyMoney: 35,
       todyComeIn: 142,
       todyGoOut: 263,
@@ -59,7 +68,22 @@ const _sfc_main = {
   },
   onLoad() {
   },
+  mounted: function() {
+    this.getDomConfig();
+  },
   methods: {
+    getDomConfig() {
+      this.$nextTick(() => {
+        let that = this;
+        let info = common_vendor.index.createSelectorQuery().select(".uni-section-search");
+        info.boundingClientRect(function(data) {
+          that.fixedElementHeight = data.height;
+        }).exec();
+      });
+    },
+    changeTab(item) {
+      this.current = item.id;
+    },
     getServerData() {
       setTimeout(() => {
         let res1 = {
@@ -193,27 +217,36 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.t($data.todyMoney),
-    b: common_vendor.t($data.todyComeIn),
-    c: common_vendor.t($data.todyGoOut),
-    d: common_vendor.t($data.monthCar),
-    e: common_vendor.t($data.monthMoney),
-    f: common_vendor.p({
+    a: common_vendor.f($data.tabList, (item, index, i0) => {
+      return {
+        a: common_vendor.t(item.name),
+        b: common_vendor.n($data.current == item.id ? "active" : ""),
+        c: common_vendor.o(($event) => $options.changeTab(item), index),
+        d: index
+      };
+    }),
+    b: $data.fixedElementHeight + "px",
+    c: common_vendor.t($data.todyMoney),
+    d: common_vendor.t($data.todyComeIn),
+    e: common_vendor.t($data.todyGoOut),
+    f: common_vendor.t($data.monthCar),
+    g: common_vendor.t($data.monthMoney),
+    h: common_vendor.p({
       type: "pie",
       opts: $data.moneyOpts,
       chartData: $data.moneyBoxData
     }),
-    g: common_vendor.p({
+    i: common_vendor.p({
       type: "mount",
       opts: $data.carOpts,
       chartData: $data.carBoxData
     }),
-    h: common_vendor.p({
+    j: common_vendor.p({
       type: "mount",
       opts: $data.carOpts,
       chartData: $data.monkeyBoxData
     }),
-    i: common_vendor.p({
+    k: common_vendor.p({
       type: "mount",
       opts: $data.carOpts,
       chartData: _ctx.carComeOutBoxData

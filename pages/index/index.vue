@@ -1,6 +1,21 @@
 <template>
 	<view class="content">
+
+		<view class="top-view">
+			<view class="tablist">
+				<block v-for="(item,index) in tabList" :key="index">
+					<view class="tabItem" :class="current == item.id?'active':''" @click="changeTab(item)">
+						{{item.name}}
+					</view>
+				</block>
+			</view>
+		</view>
+
+		<view class="space-holder" :style="{ height: fixedElementHeight + 'px' }">
+		</view>
+
 		<view class="model-parent statistics-parent">
+
 			<text style="font-weight: bold;">数据概览</text>
 			<view class="statistics-item-parent">
 
@@ -61,7 +76,7 @@
 				</view>
 			</template>
 		</view>
-		
+
 		<view class="model-parent charts-month-car-parent">
 			<text style="font-weight: bold;">固定车收费统计</text>
 			<text class="item-title">车流统计</text>
@@ -79,6 +94,15 @@
 	export default {
 		data() {
 			return {
+				fixedElementHeight: 50,
+				current: 1,
+				tabList: [{
+					id: 1,
+					name: '今日'
+				}, {
+					id: 2,
+					name: '本周'
+				}],
 				todyMoney: 35,
 				todyComeIn: 142,
 				todyGoOut: 263,
@@ -137,7 +161,27 @@
 		onLoad() {
 
 		},
+		mounted: function() {
+			var _this = this;
+			var _that = this;
+			this.getDomConfig();
+		},
 		methods: {
+			getDomConfig() {
+				//等DOM 更新完成后才会执行
+				this.$nextTick(() => {
+					let that = this
+					//捕获“顶部数据”的高度
+					let info = uni.createSelectorQuery().select(".uni-section-search");
+					info.boundingClientRect(function(data) { //data - 各种参数
+						//console.log(data) // 获取元素的相关信息
+						that.fixedElementHeight = data.height
+					}).exec()
+				});
+			},
+			changeTab(item) {
+				this.current = item.id
+			},
 			getServerData() {
 				setTimeout(() => {
 					//模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
@@ -265,6 +309,41 @@
 </script>
 
 <style lang="scss">
+	.top-view {
+		background-color: #007aff;
+		width: 100%;
+		z-index: 999;
+		display: flex;
+		position: fixed;
+		justify-content: center;
+		align-items: center;
+
+		.tablist {
+			display: flex;
+			width: 229rpx;
+			height: 56rpx;
+			margin-bottom: 14rpx;
+			border-radius: 10rpx;
+			border: 1rpx solid #FFFFFF;
+
+			.tabItem {
+				width: 125rpx;
+				height: 56rpx;
+				border-radius: 10rpx;
+				font-size: 28rpx;
+				color: #FFFFFF;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.active {
+				color: #0396FF;
+				background-color: #ffffff;
+			}
+		}
+	}
+
 	.content {
 		display: flex;
 		flex-direction: column;

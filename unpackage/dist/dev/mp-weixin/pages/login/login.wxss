@@ -1,4 +1,9 @@
 
+.combox.data-v-e4e4508d{
+		width: 260rpx;
+		float: right;
+		margin-top: 6rpx;
+}
 .content.data-v-e4e4508d {
 		height: 100vh;
 		background-color: aquamarine;
@@ -54,7 +59,7 @@ h3.data-v-e4e4508d {
 		color: #fff;
 		margin-top: 50rpx;
 }
-.registerBtn.data-v-e4e4508d {
+.youkeLogin.data-v-e4e4508d {
 		margin-top: 20rpx;
 		line-height: 85rpx;
 		text-align: center;

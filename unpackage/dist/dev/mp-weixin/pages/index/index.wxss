@@ -23,6 +23,37 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.top-view {
+  background-color: #007aff;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+}
+.top-view .tablist {
+  display: flex;
+  width: 229rpx;
+  height: 56rpx;
+  margin-bottom: 14rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #FFFFFF;
+}
+.top-view .tablist .tabItem {
+  width: 125rpx;
+  height: 56rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top-view .tablist .active {
+  color: #0396FF;
+  background-color: #ffffff;
+}
 .content {
   display: flex;
   flex-direction: column;

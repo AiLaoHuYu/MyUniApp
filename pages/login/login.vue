@@ -8,7 +8,13 @@
 			<h3>欢迎使用掌上云停车</h3>
 		</view>
 		<view class="inputBox">
-			<view class="ipt">
+			<template>
+				<view><uni-combox class="combox" :candidates="candidates" placeholder="请选择用户" v-model="user"
+						@input="comboxInput"></uni-combox>
+				</view>
+			</template>
+
+			<view class="ipt" style="margin-top: 50rpx;">
 				<h4>车场名称</h4>
 				<input type="text" v-model="yardName" placeholder="请输入车场名称" />
 			</view>
@@ -21,7 +27,7 @@
 				<input type="safe-password" v-model="password" placeholder="请输入密码" />
 			</view>
 			<button class="loginBtn" @click="login()">登录</button>
-			<button class="registerBtn">注册</button>
+			<button class="youkeLogin">游客登录</button>
 		</view>
 	</view>
 </template>
@@ -32,7 +38,9 @@
 			return {
 				username: '',
 				yardName: '',
-				password: ''
+				password: '',
+				candidates: ["个人", "集团"],
+				user: "",
 			}
 		},
 		methods: {
@@ -61,13 +69,24 @@
 						url: '/pages/index/index'
 					});
 				}
-
+			},
+			// @input	combox输入事件	返回combox值
+			comboxInput(e) {
+				console.log("当前输入的值：", e);
+				this.user = e
 			}
 		}
 	}
 </script>
 
 <style scoped>
+	
+	.combox{
+		width: 260rpx;
+		float: right;
+		margin-top: 6rpx;
+	}
+
 	.content {
 		height: 100vh;
 		background-color: aquamarine;
@@ -132,7 +151,7 @@
 		margin-top: 50rpx;
 	}
 
-	.registerBtn {
+	.youkeLogin {
 		margin-top: 20rpx;
 		line-height: 85rpx;
 		text-align: center;

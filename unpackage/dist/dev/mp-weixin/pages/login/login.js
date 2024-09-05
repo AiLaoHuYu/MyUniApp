@@ -5,7 +5,9 @@ const _sfc_main = {
     return {
       username: "",
       yardName: "",
-      password: ""
+      password: "",
+      candidates: ["个人", "集团"],
+      user: ""
     };
   },
   methods: {
@@ -39,18 +41,39 @@ const _sfc_main = {
           url: "/pages/index/index"
         });
       }
+    },
+    // @input	combox输入事件	返回combox值
+    comboxInput(e) {
+      console.log("当前输入的值：", e);
+      this.user = e;
     }
   }
 };
+if (!Array) {
+  const _easycom_uni_combox2 = common_vendor.resolveComponent("uni-combox");
+  const _component_template = common_vendor.resolveComponent("template");
+  (_easycom_uni_combox2 + _component_template)();
+}
+const _easycom_uni_combox = () => "../../uni_modules/uni-combox/components/uni-combox/uni-combox.js";
+if (!Math) {
+  _easycom_uni_combox();
+}
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: $data.yardName,
-    b: common_vendor.o(($event) => $data.yardName = $event.detail.value),
-    c: $data.username,
-    d: common_vendor.o(($event) => $data.username = $event.detail.value),
-    e: $data.password,
-    f: common_vendor.o(($event) => $data.password = $event.detail.value),
-    g: common_vendor.o(($event) => $options.login())
+    a: common_vendor.o($options.comboxInput),
+    b: common_vendor.o(($event) => $data.user = $event),
+    c: common_vendor.p({
+      candidates: $data.candidates,
+      placeholder: "请选择用户",
+      modelValue: $data.user
+    }),
+    d: $data.yardName,
+    e: common_vendor.o(($event) => $data.yardName = $event.detail.value),
+    f: $data.username,
+    g: common_vendor.o(($event) => $data.username = $event.detail.value),
+    h: $data.password,
+    i: common_vendor.o(($event) => $data.password = $event.detail.value),
+    j: common_vendor.o(($event) => $options.login())
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-e4e4508d"]]);

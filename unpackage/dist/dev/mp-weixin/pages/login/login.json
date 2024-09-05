@@ -1,4 +1,7 @@
 {
   "navigationStyle": "custom",
-  "usingComponents": {}
+  "disableScroll": true,
+  "usingComponents": {
+    "uni-combox": "../../uni_modules/uni-combox/components/uni-combox/uni-combox"
+  }
 }
