@@ -19,6 +19,7 @@ const _sfc_main = {
       historyData: {},
       carBoxData: {},
       monkeyBoxData: {},
+      isLogin: false,
       carComeOutBoxData: {},
       dataOne: {
         "today": {
@@ -317,6 +318,9 @@ const _sfc_main = {
   onReady() {
     common_vendor.index.showShareMenu();
     this.getData();
+  },
+  onLoad() {
+    this.isLogin = common_vendor.index.getStorageSync("isLogin");
   }
 };
 if (!Array) {
@@ -329,13 +333,38 @@ if (!Math) {
   _easycom_qiun_data_charts();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return {
-    a: common_vendor.t($data.todayStatics.totalMoney),
-    b: common_vendor.t($data.todayStatics.todayCome),
-    c: common_vendor.t($data.todayStatics.todayOut),
-    d: common_vendor.t($data.todayStatics.monthCar),
-    e: common_vendor.t($data.todayStatics.monthMoney),
-    f: common_vendor.f($data.historyBtn, (item, index, i0) => {
+  return common_vendor.e({
+    a: $data.isLogin
+  }, $data.isLogin ? {
+    b: common_vendor.t($data.todayStatics.totalMoney)
+  } : {}, {
+    c: !$data.isLogin
+  }, !$data.isLogin ? {} : {}, {
+    d: $data.isLogin
+  }, $data.isLogin ? {
+    e: common_vendor.t($data.todayStatics.todayCome)
+  } : {}, {
+    f: !$data.isLogin
+  }, !$data.isLogin ? {} : {}, {
+    g: $data.isLogin
+  }, $data.isLogin ? {
+    h: common_vendor.t($data.todayStatics.todayOut)
+  } : {}, {
+    i: !$data.isLogin
+  }, !$data.isLogin ? {} : {}, {
+    j: $data.isLogin
+  }, $data.isLogin ? {
+    k: common_vendor.t($data.todayStatics.monthCar)
+  } : {}, {
+    l: !$data.isLogin
+  }, !$data.isLogin ? {} : {}, {
+    m: $data.isLogin
+  }, $data.isLogin ? {
+    n: common_vendor.t($data.todayStatics.monthMoney)
+  } : {}, {
+    o: !$data.isLogin
+  }, !$data.isLogin ? {} : {}, {
+    p: common_vendor.f($data.historyBtn, (item, index, i0) => {
       return {
         a: common_vendor.t(item.name),
         b: index,
@@ -343,7 +372,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.o(($event) => $options.changeHistoryBtn(item.type), index)
       };
     }),
-    g: common_vendor.p({
+    q: common_vendor.p({
       type: "line",
       canvasId: "finance_a",
       canvas2d: _ctx.isCanvas2d,
@@ -362,22 +391,22 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       },
       chartData: $data.historyData
     }),
-    h: common_vendor.p({
+    r: common_vendor.p({
       type: "mount",
       opts: $data.carOpts,
       chartData: $data.carBoxData
     }),
-    i: common_vendor.p({
+    s: common_vendor.p({
       type: "mount",
       opts: $data.carOpts,
       chartData: $data.carComeOutBoxData
     }),
-    j: common_vendor.p({
+    t: common_vendor.p({
       type: "mount",
       opts: $data.carOpts,
       chartData: $data.monkeyBoxData
     })
-  };
+  });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-1cf27b2a"]]);
 wx.createPage(MiniProgramPage);

@@ -9,7 +9,8 @@
     "pages/carPictureDetail/carPictureDetail",
     "pages/mainChart/mainChart",
     "pages/areaSettings/areaSettings",
-    "pages/areaEdit/areaEdit"
+    "pages/areaEdit/areaEdit",
+    "pages/changePassword/changePassword"
   ],
   "window": {
     "navigationBarTextStyle": "black",

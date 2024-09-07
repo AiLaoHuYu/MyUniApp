@@ -12,6 +12,7 @@ if (!Math) {
   "./pages/mainChart/mainChart.js";
   "./pages/areaSettings/areaSettings.js";
   "./pages/areaEdit/areaEdit.js";
+  "./pages/changePassword/changePassword.js";
 }
 const _sfc_main = {
   onLaunch: function() {

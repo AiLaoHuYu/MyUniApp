@@ -6,25 +6,30 @@
 			</view>
 			<view class="top_desc">
 				<view class="text-gray">今日收款（元）</view>
-				<view class="remaining">{{todayStatics.totalMoney}}</view>
+				<view class="remaining" v-if="isLogin">{{todayStatics.totalMoney}}</view>
+				<view class="remaining" v-if="!isLogin">***</view>
 				<view class="row head_block">
-					<view class="flex_1">
+					<view class="column coflex_1">
 						<text class="text-gray">今日进场（次）</text>
-						<text class="text_green">{{todayStatics.todayCome}}</text>
+						<text class="text_green" v-if="isLogin">{{todayStatics.todayCome}}</text>
+						<view class="text_green" v-if="!isLogin">***</view>
 					</view>
-					<view class="flex_1">
+					<view class="column flex_1">
 						<text class="text-gray">进入出场（次）</text>
-						<text class="income">{{todayStatics.todayOut}}</text>
+						<text class="income" v-if="isLogin">{{todayStatics.todayOut}}</text>
+						<view class="income" v-if="!isLogin">***</view>
 					</view>
 				</view>
 				<view class="row head_block">
-					<view class="flex_1">
+					<view class="column flex_1">
 						<text class="text-gray">本月车流量（次）</text>
-						<text class="text_green">{{todayStatics.monthCar}}</text>
+						<text class="text_green" v-if="isLogin">{{todayStatics.monthCar}}</text>
+						<view class="text_green" v-if="!isLogin">***</view>
 					</view>
-					<view class="flex_1">
+					<view class="column flex_1">
 						<text class="text-gray">本月营收额（元）</text>
-						<text class="income">{{todayStatics.monthMoney}}</text>
+						<text class="income" v-if="isLogin">{{todayStatics.monthMoney}}</text>
+						<view class="income" v-if="!isLogin">***</view>
 					</view>
 				</view>
 			</view>
@@ -109,6 +114,7 @@
 				historyData: {},
 				carBoxData: {},
 				monkeyBoxData: {},
+				isLogin: false,
 				carComeOutBoxData: {},
 				dataOne: {
 					"today": {
@@ -407,6 +413,9 @@
 			uni.showShareMenu();
 			//#endif
 			this.getData()
+		},
+		onLoad() {
+			this.isLogin = uni.getStorageSync('isLogin')
 		}
 	}
 </script>
@@ -414,7 +423,9 @@
 <style scoped lang="scss">
 	.body {
 		height: 100%;
-		background: linear-gradient(to right, #2859fe, #1ba0ff);;
+		padding-bottom: 20rpx;
+		background: linear-gradient(to right, #2859fe, #1ba0ff);
+		;
 		margin: 0;
 
 		li {
@@ -426,6 +437,11 @@
 			flex-direction: row;
 		}
 		
+		.column {
+			display: flex;
+			flex-direction: column;
+		}
+
 		.text_green {
 			color: #4ECDB6;
 		}
@@ -511,7 +527,7 @@
 		}
 
 		.top_head {
-			height: 435rpx;
+			height: 470rpx;
 			width: 100%;
 			padding: 80rpx 10rpx 0rpx 10rpx;
 			background-size: 100% 100%;

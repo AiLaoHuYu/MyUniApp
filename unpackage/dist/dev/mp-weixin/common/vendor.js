@@ -7973,6 +7973,14 @@ const pages = [
       navigationBarTextStyle: "white",
       navigationBarBackgroundColor: "#007aff"
     }
+  },
+  {
+    path: "pages/changePassword/changePassword",
+    style: {
+      navigationBarTitleText: "重置密码",
+      navigationBarTextStyle: "white",
+      navigationBarBackgroundColor: "#007aff"
+    }
   }
 ];
 const tabBar = {

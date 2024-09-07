@@ -27,7 +27,7 @@
 				<input type="safe-password" v-model="password" placeholder="请输入密码" />
 			</view>
 			<button class="loginBtn" @click="login()">登录</button>
-			<button class="youkeLogin">游客登录</button>
+			<button class="youkeLogin" @click="youkeLogin()">游客登录</button>
 		</view>
 	</view>
 </template>
@@ -64,11 +64,25 @@
 						duration: 2000 //持续时间为 2秒
 					})
 				} else {
-					// 跳转至登录页面
+					// 登录成功
+					uni.setStorageSync('isLogin',true)
+					//保存用户名在缓存
+					uni.setStorageSync('userName',this.username.trim())
+					//保存用户身份在缓存
+					uni.setStorageSync('userIdentity',this.user)
 					uni.switchTab({
 						url: '/pages/index/index'
 					});
 				}
+			},
+			youkeLogin(){
+				// 游客登录成功
+				uni.setStorageSync('isLogin',false)
+				//保存用户名在缓存
+				uni.setStorageSync('userName','游客')
+				uni.switchTab({
+					url: '/pages/index/index'
+				});
 			},
 			// @input	combox输入事件	返回combox值
 			comboxInput(e) {

@@ -2,7 +2,7 @@
 	<view>
 		<view class="upper-box">
 			<view class="tip-box">
-				<view class="tip">欢迎您，admin!</view>
+				<view class="tip">欢迎您，{{username}}!</view>
 				<view class="btn">切换车场 ></view>
 			</view>
 			<view class="setting">
@@ -10,7 +10,7 @@
 			</view>
 		</view>
 		<view class="lower-box">
-			<view class="menu">
+			<view class="menu" @click="goChangePsd()">
 				<image src="../../static/mine/changePassword.png"></image>
 				<text>修改密码</text>
 			</view>
@@ -33,14 +33,31 @@
 <script>
 	export default {
 		data() {
-			return {};
+			return {
+				username: {}
+			};
 		},
-		methods:{
-			goLogin(){
+		methods: {
+			goLogin() {
 				uni.reLaunch({
-					url:'/pages/login/login'
+					url: '/pages/login/login'
+				})
+			},
+			goChangePsd(){
+				uni.navigateTo({
+					url: '/pages/changePassword/changePassword'
 				})
 			}
+		},
+		onLoad: function() {
+			let isLogin = uni.getStorageSync('isLogin')
+			if (isLogin) {
+				this.username = uni.getStorageSync('userName')
+			} else {
+				this.username = '游客'
+			}
+			console.log(this.username)
+			console.log(isLogin)
 		}
 	};
 </script>
@@ -74,13 +91,13 @@
 				background-color: #FFFFFF;
 			}
 		}
-		
-		.setting{
+
+		.setting {
 			position: absolute;
 			top: 50rpx;
 			right: 50rpx;
-			
-			image{
+
+			image {
 				width: 60rpx;
 				height: 60rpx;
 			}
@@ -119,4 +136,3 @@
 		}
 	}
 </style>
-
