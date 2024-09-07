@@ -1,131 +1,197 @@
 <template>
-	<view class="content">
-
-		<view class="top-view">
-			<view class="tablist">
-				<block v-for="(item,index) in tabList" :key="index">
-					<view class="tabItem" :class="current == item.id?'active':''" @click="changeTab(item)">
-						{{item.name}}
+	<view class="body">
+		<view class="top_head">
+			<view class="text_des">
+				<text class="title">车场数据统计</text>
+			</view>
+			<view class="top_desc">
+				<view class="text-gray">今日收款（元）</view>
+				<view class="remaining">{{todayStatics.totalMoney}}</view>
+				<view class="row head_block">
+					<view class="flex_1">
+						<text class="text-gray">今日进场（次）</text>
+						<text class="text_green">{{todayStatics.todayCome}}</text>
 					</view>
-				</block>
+					<view class="flex_1">
+						<text class="text-gray">进入出场（次）</text>
+						<text class="income">{{todayStatics.todayOut}}</text>
+					</view>
+				</view>
+				<view class="row head_block">
+					<view class="flex_1">
+						<text class="text-gray">本月车流量（次）</text>
+						<text class="text_green">{{todayStatics.monthCar}}</text>
+					</view>
+					<view class="flex_1">
+						<text class="text-gray">本月营收额（元）</text>
+						<text class="income">{{todayStatics.monthMoney}}</text>
+					</view>
+				</view>
 			</view>
 		</view>
-
-		<view class="space-holder" :style="{ height: fixedElementHeight + 'px' }">
-		</view>
-
-		<view class="model-parent statistics-parent">
-
-			<text style="font-weight: bold;">数据概览</text>
-			<view class="statistics-item-parent">
-
-				<view class="statistics-item first-item">
-					<text class="statistics-item-title">今日收款（元）</text>
-					<text class="statistics-item-text">{{todyMoney}}</text>
+		<view class="main">
+			<view class="row_block">
+				<view class="the_title" style="justify-content: space-between;">
+					<view class="left_title">
+						<view class="title_icon"></view>
+						<text class="margin_stand-samll font-big wide">收入明细</text>
+					</view>
+					<view class="right_btn">
+						<view v-for="(item,index) in historyBtn" :key="index" :class="item.state ? 'active_btn':''"
+							@click="changeHistoryBtn(item.type)">{{item.name}}</view>
+					</view>
 				</view>
-
-				<view class="statistics-item second-item">
-					<text class="statistics-item-title">今日进出（次）</text>
-					<text class="statistics-item-text">{{todyComeIn}}</text>
+				<view class="charts-box" style="height: 200px;">
+					<qiun-data-charts type="line" canvasId="finance_a" :canvas2d="isCanvas2d" :resshow="delayload"
+						:opts="{xAxis:{itemCount:12,disableGrid:true},yAxis:{disableGrid:true,data:[{disabled:true}]}}"
+						:chartData="historyData" />
 				</view>
-
-				<view class="statistics-item third-item">
-					<text class="statistics-item-title">今日出场（次）</text>
-					<text class="statistics-item-text">{{todyGoOut}}</text>
-				</view>
-
-				<view class="statistics-item fourth-item">
-					<text class="statistics-item-title">本月车流量（次）</text>
-					<text class="statistics-item-text">{{monthCar}}</text>
-				</view>
-
-				<view class="statistics-item fiveth-item">
-					<text class="statistics-item-title">本月营收额（元）</text>
-					<text class="statistics-item-text">{{monthMoney}}</text>
-				</view>
-
 			</view>
-
-		</view>
-
-		<view class="model-parent charts-month-money-parent">
-			<text style="font-weight: bold;">本月收费来源汇总</text>
-			<template>
-				<view class="charts-box">
-					<qiun-data-charts type="pie" :opts="moneyOpts" :chartData="moneyBoxData" />
+			<view class="row_block">
+				<view class="the_title">
+					<view class="title_icon"></view>
+					<text class="margin_stand-samll font-big wide">临停车流统计</text>
 				</view>
-			</template>
-		</view>
-
-		<view class="model-parent charts-month-car-parent">
-			<text style="font-weight: bold;">临停车流统计</text>
-			<text class="item-title">车流统计</text>
-			<template>
-				<view class="charts-box">
-					<qiun-data-charts type="mount" :opts="carOpts" :chartData="carBoxData" />
+				<view class="model-parent charts-month-car-parent">
+					<template>
+						<view class="charts-box">
+							<qiun-data-charts type="mount" :opts="carOpts" :chartData="carBoxData" />
+						</view>
+					</template>
 				</view>
-			</template>
-		</view>
-
-		<view class="model-parent charts-month-car-parent">
-			<text style="font-weight: bold;">停车收费统计</text>
-			<text class="item-title">最近收费金额</text>
-			<template>
-				<view class="charts-box">
-					<qiun-data-charts type="mount" :opts="carOpts" :chartData="monkeyBoxData" />
+			</view>
+			<view class="row_block">
+				<view class="the_title" style="margin-bottom: 40rpx;">
+					<view class="title_icon"></view>
+					<text class="margin_stand-samll font-big wide">固定车车流统计</text>
 				</view>
-			</template>
-		</view>
-
-		<view class="model-parent charts-month-car-parent">
-			<text style="font-weight: bold;">固定车收费统计</text>
-			<text class="item-title">车流统计</text>
-			<template>
-				<view class="charts-box">
-					<qiun-data-charts type="mount" :opts="carOpts" :chartData="carComeOutBoxData" />
+				<view class="model-parent charts-month-car-parent">
+					<template>
+						<view class="charts-box">
+							<qiun-data-charts type="mount" :opts="carOpts" :chartData="carComeOutBoxData" />
+						</view>
+					</template>
 				</view>
-			</template>
+			</view>
+			<view class="end_block">
+				<view class="the_title">
+					<view class="title_icon"></view>
+					<text class="margin_stand-samll font-big wide">最近收费金额</text>
+				</view>
+				<view class="model-parent charts-month-car-parent">
+					<template>
+						<view class="charts-box">
+							<qiun-data-charts type="mount" :opts="carOpts" :chartData="monkeyBoxData" />
+						</view>
+					</template>
+				</view>
+			</view>
 		</view>
-
 	</view>
 </template>
 
 <script>
+	import ProgressBar from "../../components/progress-bar/progress-bar.vue"
+
+	let _now = new Date();
+	let now_time = {};
+	now_time.year = _now.getFullYear()
+	now_time.month = _now.getMonth() + 1
+	now_time.day = _now.getDay()
 	export default {
+		components: {
+			ProgressBar
+		},
 		data() {
 			return {
-				fixedElementHeight: 50,
-				current: 1,
-				tabList: [{
-					id: 1,
-					name: '今日'
-				}, {
-					id: 2,
-					name: '本周'
-				}],
-				todyMoney: 35,
-				todyComeIn: 142,
-				todyGoOut: 263,
-				monthCar: 14721,
-				monthMoney: 3265,
-				moneyBoxData: {},
+				info: "", //用户数据
+				scrollHeight: "600px", //数据展示体高度
+				historyData: {},
 				carBoxData: {},
 				monkeyBoxData: {},
-				moneyOpts: {
-					color: ["#1890FF", "#91CB74"],
-					padding: [5, 5, 5, 5],
-					enableScroll: false,
-					extra: {
-						pie: {
-							activeOpacity: 0.5,
-							activeRadius: 10,
-							offsetAngle: 0,
-							labelWidth: 15,
-							border: true,
-							borderWidth: 3,
-							borderColor: "#FFFFFF"
-						}
+				carComeOutBoxData: {},
+				dataOne: {
+					"today": {
+						"categories": [
+							"支付宝",
+							"微信",
+							"其他"
+						],
+						"series": [{
+							"name": "今日收入",
+							"data": [23, 14, 8],
+							"type": "line",
+							"style": "curve",
+							"color": "#4ECDB6",
+							"unit": ""
+						}],
+						"yAxis": [{
+							"calibration": true,
+							"position": "left",
+							"title": "单位/元",
+							"titleFontSize": 12,
+							"unit": "",
+							"tofix": 0,
+							"min": 0,
+							"disableGrid": true
+						}]
+					},
+					"month": {
+						"categories": [
+							"支付宝",
+							"微信",
+							"其他"
+						],
+						"series": [{
+							"name": "本月收入",
+							"data": [222, 256, 129],
+							"type": "line",
+							"style": "curve",
+							"color": "#4ECDB6",
+							"unit": ""
+						}],
+						"yAxis": [{
+							"calibration": true,
+							"position": "left",
+							"title": "单位/元",
+							"titleFontSize": 12,
+							"unit": "",
+							"tofix": 0,
+							"min": 0,
+							"disableGrid": true
+						}]
+					},
+					"year": {
+						"categories": [
+							"支付宝",
+							"微信",
+							"其他"
+						],
+						"series": [{
+							"name": "今年收入",
+							"data": [815, 712.5, 378],
+							"type": "line",
+							"style": "curve",
+							"color": "#4ECDB6",
+							"unit": ""
+						}],
+						"yAxis": [{
+							"calibration": true,
+							"position": "left",
+							"title": "单位/元",
+							"titleFontSize": 12,
+							"unit": "",
+							"tofix": 0,
+							"min": 0,
+							"disableGrid": true
+						}]
 					}
+				},
+				delayload: false,
+				nowTime: {
+					year: now_time.year,
+					month: now_time.month,
+					day: now_time.day
 				},
 				carOpts: {
 					color: ["#1890FF", "#91CB74", "#FAC858", "#EE6666", "#73C0DE", "#3CA272", "#FC8452"],
@@ -151,278 +217,352 @@
 							widthRatio: 0.8
 						}
 					}
+				},
+				historyBtn: [{
+						name: "今日",
+						state: 1,
+						type: "expend"
+					},
+					{
+						name: "本月",
+						state: 0,
+						type: "income"
+					},
+					{
+						name: "今年",
+						state: 0,
+						type: "remaining"
+					},
+				],
+				todayStatics: {
+					totalMoney: 564,
+					todayCome: 246,
+					todayOut: 239,
+					monthCar: 14721,
+					monthMoney: 3265
+				},
+				extendRank: [{
+						name: "腐败聚会",
+						desc: now_time.month + "月6日12:34-跨界空间轰趴",
+						money: "422.12"
+					},
+					{
+						name: "沐浴按摩",
+						desc: now_time.month + "月12日21:34-乔杉沐浴城",
+						money: "318.00"
+					},
+					{
+						name: "食品酒水",
+						desc: now_time.month + "月1日21:34-school酒馆",
+						money: "289.50"
+					},
+				]
+			};
+		},
+		watch: {
+			"historyBtn": {
+				deep: true,
+				handler: function(newVal, oldVal) {
+					this.filterHistoryData();
 				}
 			}
 		},
-
-		onReady() {
-			this.getServerData();
-		},
-		onLoad() {
-
-		},
-		mounted: function() {
-			var _this = this;
-			var _that = this;
-			this.getDomConfig();
-		},
 		methods: {
-			getDomConfig() {
-				//等DOM 更新完成后才会执行
-				this.$nextTick(() => {
-					let that = this
-					//捕获“顶部数据”的高度
-					let info = uni.createSelectorQuery().select(".uni-section-search");
-					info.boundingClientRect(function(data) { //data - 各种参数
-						//console.log(data) // 获取元素的相关信息
-						that.fixedElementHeight = data.height
-					}).exec()
-				});
+			async getData() {
+				let res2 = {
+					series: [{
+						data: [{
+							"name": "2024-07-17",
+							"value": 700,
+							"legendText": "2024-07-17"
+						}, {
+							"name": "",
+							"value": 629,
+							"legendText": "2024-07-18"
+						}, {
+							"name": "",
+							"value": 600,
+							"legendText": "2024-07-19"
+						}, {
+							"name": "2024-07-20",
+							"value": 500,
+							"legendText": "2024-07-20"
+						}, {
+							"name": "",
+							"value": 800,
+							"legendText": "2024-07-21"
+						}, {
+							"name": "",
+							"value": 666,
+							"legendText": "2024-07-22"
+						}, {
+							"name": "2024-07-23",
+							"value": 778,
+							"legendText": "2024-07-23"
+						}]
+					}]
+				};
+				this.carBoxData = JSON.parse(JSON.stringify(res2));
+				let res3 = {
+					series: [{
+						data: [{
+							"name": "2024-07-17",
+							"value": 118,
+							"legendText": "2024-07-17"
+						}, {
+							"name": "",
+							"value": 134,
+							"legendText": "2024-07-18"
+						}, {
+							"name": "",
+							"value": 57,
+							"legendText": "2024-07-19"
+						}, {
+							"name": "2024-07-20",
+							"value": 28,
+							"legendText": "2024-07-20"
+						}, {
+							"name": "",
+							"value": 94,
+							"legendText": "2024-07-21"
+						}, {
+							"name": "",
+							"value": 45,
+							"legendText": "2024-07-22"
+						}, {
+							"name": "2024-07-23",
+							"value": 15,
+							"legendText": "2024-07-23"
+						}]
+					}]
+				};
+				this.monkeyBoxData = JSON.parse(JSON.stringify(res3));
+				let res4 = {
+					series: [{
+						data: [{
+							"name": "2024-01",
+							"value": 320,
+							"legendText": "2024-01"
+						}, {
+							"name": "",
+							"value": 320,
+							"legendText": "2024-02"
+						}, {
+							"name": "",
+							"value": 1388,
+							"legendText": "2024-03"
+						}, {
+							"name": "2024-04",
+							"value": 340,
+							"legendText": "2024-04"
+						}, {
+							"name": "",
+							"value": 598,
+							"legendText": "2024-05"
+						}, {
+							"name": "",
+							"value": 999,
+							"legendText": "2024-06"
+						}, {
+							"name": "2024-07",
+							"value": 888,
+							"legendText": "2024-07"
+						}]
+					}]
+				};
+				this.carComeOutBoxData = JSON.parse(JSON.stringify(res4));
+				uni.showLoading();
+				this.filterHistoryData();
+				await setTimeout(() => {
+					this.delayload = true;
+					uni.hideLoading();
+				}, 1000)
 			},
-			changeTab(item) {
-				this.current = item.id
+			changeHistoryBtn(type) {
+				for (let i = 0; i < this.historyBtn.length; i++) {
+					if (this.historyBtn[i].type == type) {
+						this.historyBtn[i].state = 1
+					} else {
+						this.historyBtn[i].state = 0
+					}
+				}
 			},
-			getServerData() {
-				setTimeout(() => {
-					//模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
-					//模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
-					let res1 = {
-						series: [{
-							data: [{
-								"name": "微信",
-								"value": 3145,
-								"labelText": "3145元"
-							}, {
-								"name": "支付宝",
-								"value": 120,
-								"labelText": "120元"
-							}]
-						}]
-					};
-					this.moneyBoxData = JSON.parse(JSON.stringify(res1));
-					let res2 = {
-						series: [{
-							data: [{
-								"name": "2024-07-17",
-								"value": 700,
-								"legendText": "2024-07-17"
-							}, {
-								"name": "",
-								"value": 629,
-								"legendText": "2024-07-18"
-							}, {
-								"name": "",
-								"value": 600,
-								"legendText": "2024-07-19"
-							}, {
-								"name": "2024-07-20",
-								"value": 500,
-								"legendText": "2024-07-20"
-							}, {
-								"name": "",
-								"value": 800,
-								"legendText": "2024-07-21"
-							}, {
-								"name": "",
-								"value": 666,
-								"legendText": "2024-07-22"
-							}, {
-								"name": "2024-07-23",
-								"value": 778,
-								"legendText": "2024-07-23"
-							}]
-						}]
-					};
-					this.carBoxData = JSON.parse(JSON.stringify(res2));
-					let res3 = {
-						series: [{
-							data: [{
-								"name": "2024-07-17",
-								"value": 118,
-								"legendText": "2024-07-17"
-							}, {
-								"name": "",
-								"value": 134,
-								"legendText": "2024-07-18"
-							}, {
-								"name": "",
-								"value": 57,
-								"legendText": "2024-07-19"
-							}, {
-								"name": "2024-07-20",
-								"value": 28,
-								"legendText": "2024-07-20"
-							}, {
-								"name": "",
-								"value": 94,
-								"legendText": "2024-07-21"
-							}, {
-								"name": "",
-								"value": 45,
-								"legendText": "2024-07-22"
-							}, {
-								"name": "2024-07-23",
-								"value": 15,
-								"legendText": "2024-07-23"
-							}]
-						}]
-					};
-					this.monkeyBoxData = JSON.parse(JSON.stringify(res3));
-					let res4 = {
-						series: [{
-							data: [{
-								"name": "2024-01",
-								"value": 320,
-								"legendText": "2024-01"
-							}, {
-								"name": "",
-								"value": 320,
-								"legendText": "2024-02"
-							}, {
-								"name": "",
-								"value": 1388,
-								"legendText": "2024-03"
-							}, {
-								"name": "2024-04",
-								"value": 340,
-								"legendText": "2024-04"
-							}, {
-								"name": "",
-								"value": 598,
-								"legendText": "2024-05"
-							}, {
-								"name": "",
-								"value": 999,
-								"legendText": "2024-06"
-							}, {
-								"name": "2024-07",
-								"value": 888,
-								"legendText": "2024-07"
-							}]
-						}]
-					};
-					this.carComeOutBoxData = JSON.parse(JSON.stringify(res4));
-				}, 500);
-			},
+			filterHistoryData() {
+				let type = this.historyBtn.filter(x => x.state == 1)[0].type;
+				switch (type) {
+					case "expend":
+						this.historyData = this.dataOne.today;
+						break;
+					case "income":
+						this.historyData = this.dataOne.month;
+						break;
+					case "remaining":
+						this.historyData = this.dataOne.year;
+						break;
+				}
+			}
+		},
+		onReady() {
+			//#ifndef H5
+			uni.showShareMenu();
+			//#endif
+			this.getData()
 		}
 	}
 </script>
 
-<style lang="scss">
-	.top-view {
-		background-color: #007aff;
-		width: 100%;
-		z-index: 999;
-		display: flex;
-		position: fixed;
-		justify-content: center;
-		align-items: center;
+<style scoped lang="scss">
+	.body {
+		height: 100%;
+		background: linear-gradient(to right, #2859fe, #1ba0ff);;
+		margin: 0;
 
-		.tablist {
+		li {
+			list-style-type: none;
+		}
+
+		.row {
 			display: flex;
-			width: 229rpx;
-			height: 56rpx;
-			margin-bottom: 14rpx;
-			border-radius: 10rpx;
-			border: 1rpx solid #FFFFFF;
+			flex-direction: row;
+		}
+		
+		.text_green {
+			color: #4ECDB6;
+		}
 
-			.tabItem {
-				width: 125rpx;
-				height: 56rpx;
-				border-radius: 10rpx;
-				font-size: 28rpx;
-				color: #FFFFFF;
+		.main {
+			width: 100%;
+			padding: 0 10rpx;
+			box-sizing: border-box;
+			margin-top: 20rpx;
+
+			.right_btn {
+				float: right;
 				display: flex;
-				justify-content: center;
-				align-items: center;
+				color: #ccc;
+				font-size: 22rpx;
+
+				view {
+					line-height: 50rpx;
+					height: 50rpx;
+					margin: 0 20rpx;
+				}
+
+				.active_btn {
+					padding: 0rpx 20rpx;
+					border: 1px solid #ccc;
+					border-radius: 40rpx;
+				}
 			}
 
-			.active {
-				color: #0396FF;
-				background-color: #ffffff;
+			.end_block {
+				width: 100%;
+				box-sizing: border-box;
+				background-color: #fff;
+				border-radius: 12rpx;
+				position: relative;
+				padding: 20rpx;
+			}
+
+			.row_block {
+				width: 100%;
+				box-sizing: border-box;
+				background-color: #fff;
+				border-radius: 12rpx;
+				position: relative;
+				padding: 20rpx;
+
+				&::after {
+					content: "";
+					height: 0px;
+					width: 92%;
+					position: absolute;
+					transform: translateX(-50%);
+					left: 50%;
+					bottom: 0;
+					border-top: 1px dashed #ccc;
+				}
+			}
+
+			.the_title {
+				display: flex;
+				align-items: center;
+
+				.left_title {
+					display: flex;
+					align-items: center;
+				}
+
+				.title_icon {
+					background-color: #7E7E7E;
+					height: 40rpx;
+					width: 10rpx;
+					border-radius: 10rpx;
+					margin-right: 20rpx;
+					font-size: 16px;
+					font-weight: 600;
+				}
 			}
 		}
-	}
 
-	.content {
-		display: flex;
-		flex-direction: column;
-		background-color: lightgray;
-	}
+		.model-parent {
+			padding: 20rpx;
+			margin-top: 20rpx;
+		}
 
-	.model-parent {
-		display: inline-flex;
-		flex-direction: column;
-		padding: 20rpx;
-		margin-left: 20rpx;
-		margin-right: 20rpx;
-		margin-top: 20rpx;
-		background-color: white;
-		border-radius: 10rpx;
-	}
+		.top_head {
+			height: 435rpx;
+			width: 100%;
+			padding: 80rpx 10rpx 0rpx 10rpx;
+			background-size: 100% 100%;
+			box-sizing: border-box;
 
-	.item-title {
-		font-weight: bold;
-		font-size: 40rpx;
-		text-align: center;
-		margin-bottom: 20rpx;
-	}
+			.top_desc {
+				width: 100%;
+				border-radius: 20rpx;
+				background-color: #fff;
+				padding: 20rpx;
+				box-sizing: border-box;
 
-	.statistics-item-parent {
-		display: inline-flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
+				.text-gray {
+					font-size: 28rpx;
+					color: #ccc;
+					margin-right: 10rpx;
+				}
 
-	.statistics-item-title {
-		color: white;
-		font-size: 24rpx;
-	}
+				.remaining {
+					font-size: 46rpx;
+				}
 
-	.statistics-item-text {
-		color: white;
-		font-weight: bold;
-		margin-top: 10rpx;
-	}
+				.flex_1 {
+					flex: 1;
+				}
 
-	.statistics-item {
-		display: inline-flex;
-		flex-direction: column;
-		padding: 20rpx;
-		margin-top: 20rpx;
-		border-radius: 10rpx;
-	}
+				.head_block {
+					margin-top: 20rpx;
 
-	.first-item {
-		width: 170rpx;
-		background-image: linear-gradient(120deg, #f6d365, #fda085 100%);
-		margin-right: 20rpx;
-	}
+					.income {
+						color: #E34B5E;
+					}
+				}
+			}
 
-	.second-item {
-		width: 170rpx;
-		background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
-		margin-right: 20rpx;
-	}
+			.text_des {
+				height: 100rpx;
+				color: #fff;
+				font-weight: 900;
+				position: relative;
+				margin-left: 20rpx;
 
-	.third-item {
-		width: 170rpx;
-		background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);
-	}
+				text {
+					display: inline-block;
+					height: 100%;
+				}
 
-	.fourth-item {
-		width: 270rpx;
-		background-image: linear-gradient(120deg, #f6d365, #fda085 100%);
-		margin-right: 20rpx;
-	}
-
-	.fiveth-item {
-		width: 270rpx;
-		background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
-	}
-
-	.charts-box {
-		width: 100%;
-		height: 560rpx;
+				.title {
+					font-size: 45rpx;
+				}
+			}
+		}
 	}
 </style>
